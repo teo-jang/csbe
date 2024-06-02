@@ -1,3 +1,5 @@
+import asyncio
+
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -25,5 +27,20 @@ def return_sync(message: str):
     for _ in range(100):
         for i in range(len(message)):
             ret += message[i]
+
+    return {"message": ret}
+
+
+@app.get("/doPrintAsync/{message}")
+async def print_async(message: str):
+    async def async_print(message: str):
+        await asyncio.sleep(0)
+        print(message)
+
+    ret = ""
+    for _ in range(100):
+        for i in range(len(message)):
+            ret += message[i]
+            await async_print(message[i])
 
     return {"message": ret}
