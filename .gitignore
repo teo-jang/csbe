@@ -1,3 +1,8 @@
+csbe-study/csbe_study/tmp/**
+**.db
+**.png
+**/.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
