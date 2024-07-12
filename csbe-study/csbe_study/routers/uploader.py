@@ -36,7 +36,7 @@ def _save_image(file: UploadFile) -> File:
 def upload_sync(file: UploadFile = File(...)):
     image_path, output_path = _save_image(file)
 
-    ImageProcessor.convert_image_async(image_path, output_path)
+    ImageProcessor.convert_image(image_path, output_path)
     baseRepository.insert_sync({"image_path": output_path})
 
     return {"image_path": image_path, "output_path": output_path}
