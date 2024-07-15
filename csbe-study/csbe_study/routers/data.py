@@ -69,3 +69,21 @@ async def complex_in_list(
         append_value += 1
 
     return ret
+
+
+@router.get("/python_resize_test/")
+async def python_resize_test():
+    import sys
+
+    lst = []
+    initial_size = sys.getsizeof(lst)
+    print(f"Initial size: {initial_size} bytes")
+
+    for i in range(100):
+        lst.append(i)
+        size = sys.getsizeof(lst)
+        if size != initial_size:
+            print(f"Size after {i + 1} elements: {size} bytes")
+            initial_size = size
+
+    return True
