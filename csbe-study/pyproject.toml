@@ -12,6 +12,7 @@ sqlalchemy = "^2.0.30"
 pillow = "^10.3.0"
 aiosqlite = "^0.20.0"
 greenlet = "^3.0.3"
+aiomysql = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]

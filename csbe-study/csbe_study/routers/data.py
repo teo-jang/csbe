@@ -1,5 +1,10 @@
+import bisect
+import time
+
 from fastapi import APIRouter
 import random
+
+from csbe_study.repository.TrafficInfoRepository import TrafficInfoRepository
 
 router = APIRouter(prefix="/iterator", tags=["iterate"])
 
@@ -9,6 +14,19 @@ list_data = list(data)
 set_data = set(data)
 
 ACTION_COUNT = 1000
+
+traffic_data = {}
+
+
+@router.on_event("startup")
+async def startup():
+    global traffic_data
+    repository = TrafficInfoRepository()
+    print("cache load started...")
+    start = time.time()
+    traffic_data = await repository.get_all()
+    end = time.time()
+    print(f"cache load completed... {end - start} seconds")
 
 
 @router.get("/find_in_list/{value}")
@@ -87,3 +105,48 @@ async def python_resize_test():
             initial_size = size
 
     return True
+
+
+@router.get("/contains_speed_test/{value}")
+async def contains_speed_test(
+    value: int, is_sort: bool = False, contains_multiplier: int = 0
+):
+    target_data = list_data[:]
+    ret = True
+
+    if is_sort:
+        target_data.sort()
+
+    for _ in range(contains_multiplier):
+        if is_sort:
+            index = bisect.bisect_left(target_data, value)
+            ret = target_data[index] == value
+        else:
+            ret = value in target_data
+
+    return ret
+
+
+@router.get(
+    "/cache_test/{transportation_date}/{line_name}/{station_name}/{division_name}"
+)
+async def cache_test(
+    transportation_date: str,
+    line_name: str,
+    station_name: str,
+    division_name: str,
+    use_cache: bool = False,
+):
+    repository = TrafficInfoRepository()
+
+    if use_cache:
+        key = f"{transportation_date}_{line_name}_{station_name}_{division_name}"
+        return True if traffic_data.get(key, None) else False
+    else:
+        return (
+            True
+            if await repository.get_one(
+                transportation_date, line_name, station_name, division_name
+            )
+            else None
+        )
