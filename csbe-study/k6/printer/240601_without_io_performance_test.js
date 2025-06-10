@@ -55,7 +55,7 @@ export const options = {
 //
 export default function() {
 
-  http.get('http://127.0.0.1:8000/dontPrint/'+generateUUID());
+  http.get('http://127.0.0.1:8000/print/dontPrint/'+generateUUID());
   sleep(1);
 }
 
