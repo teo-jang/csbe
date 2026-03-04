@@ -1,0 +1,54 @@
+site_name: CSBE - Computer Science for Backend Engineer
+site_description: Backend Engineer를 위한 CS 강의 자료
+site_author: Teo Jang
+docs_dir: chapters
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드로 전환
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드로 전환
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang: ko
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - 키워드 목록: KEYWORDS.md
+  - Ch.2 System Call과 커널:
+      - 환경 세팅: ch02/README.md
+      - 사례와 코드: ch02/01-case.md
+      - print()는 어디로 가는가: ch02/02-print-internals.md
+      - System Call이 왜 비싼가: ch02/03-syscall-cost.md
+      - 유사 사례와 키워드 정리: ch02/04-summary.md
