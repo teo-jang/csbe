@@ -48,10 +48,10 @@ nav:
   - 키워드 목록: KEYWORDS.md
   - Ch.1 왜 CS를 공부해야 하는가:
       - 이 강의에 대해: ch01/README.md
-      - 왜 CS를 알아야 하는가: ch01/01-why-cs.md
-      - WORD size 에피소드: ch01/02-word-size.md
+      - JD와 이해, 그리고 경험: ch01/01-why-cs.md
+      - CS를 외워온다, 그리고 코딩과 CS: ch01/02-cs-and-coding.md
       - 어떻게 공부할 것인가: ch01/03-how-to-learn.md
-      - 강의 구조와 키워드 정리: ch01/04-summary.md
+      - 커리큘럼과 키워드 정리: ch01/04-summary.md
   - Ch.2 System Call과 커널:
       - 환경 세팅: ch02/README.md
       - 사례와 코드: ch02/01-case.md
