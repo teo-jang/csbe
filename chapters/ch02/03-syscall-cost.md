@@ -83,8 +83,8 @@ fd=1은 stdout이므로 터미널 화면에 출력되는 것이다.
 
 Linux에서 프로그램이 호출하는 System Call을 추적하는 디버깅 도구다.
 프로그램이 커널에 어떤 요청을 보내는지 실시간으로 볼 수 있어서, 성능 문제나 버그의 원인을 찾을 때 유용하다.
-macOS에서는 dtruss가 유사한 역할을 하지만, SIP(System Integrity Protection) 때문에 바로 사용하기 어렵다.
-macOS 사용자는 아래 결과만 확인해도 된다.
+macOS에서는 `dtruss`가 유사한 역할을 한다. 다만 macOS는 SIP(System Integrity Protection)가 걸려 있어서 `sudo dtruss`로 실행해도 제한이 있다. `csrutil disable`로 SIP를 끌 수 있지만 보안 위험이 있으니 추천하지 않는다.
+macOS 사용자는 아래 strace 결과만 확인해도 이 챕터를 따라가는 데 문제없다.
 
 </details>
 
@@ -139,13 +139,13 @@ CPU가 하나의 기본 동작을 수행하는 데 걸리는 시간 단위다.
 | 작업 | 대략적인 CPU 사이클 수 |
 |------|---------------------|
 | 변수 간 덧셈 | 1 사이클 |
-| 메모리(RAM) 읽기 | 100~300 사이클 |
+| 메인 메모리(DRAM) 읽기 (캐시 미스 시) | 100~300 사이클 |
 | System Call (단순) | 수백~수천 사이클 |
 | System Call + 실제 I/O | 수천~수만 사이클 |
 
 (출처: Ulrich Drepper, "What Every Programmer Should Know About Memory", 2007 / Livio Soares & Michael Stumm, "FlexSC", OSDI 2010. 현대 Linux에서는 Spectre/Meltdown 보안 패치(KPTI) 이후 모드 전환 비용이 더 증가했다.)
 
-CPU 내부에서 변수를 더하는 건 1 사이클이면 된다. 메모리를 읽는 건 수백 사이클. System Call은 수천 사이클. 자릿수가 다르다.
+CPU 내부에서 변수를 더하는 건 1 사이클이면 된다. 메인 메모리까지 가면 수백 사이클(CPU 캐시에 있으면 수~수십 사이클로 줄어든다). System Call은 수천 사이클. 자릿수가 다르다.
 
 `ret += message[i]`는 메모리 조작이니까 수십~수백 사이클.
 `print(message[i])`는 System Call을 포함하니까 수천 사이클 이상.
@@ -196,6 +196,19 @@ flush가 일어나면 그때 비로소 `write()` System Call이 호출된다.
 `print()`는 기본적으로 끝에 `\n`을 붙인다. 그리고 우리 서버(uvicorn)는 터미널에서 실행하고 있다. 터미널 연결 = 라인 버퍼링 = 줄바꿈마다 flush = 매 `print()`마다 `write()` System Call 발생.
 
 결국 버퍼가 있음에도, `print()`의 기본 동작(`\n` 추가)과 라인 버퍼링의 조합 때문에 매 호출마다 System Call이 발생하는 거다.
+
+
+## PYTHONUNBUFFERED=1은 뭔가
+
+앞에서 벤치마크를 실행할 때 `PYTHONUNBUFFERED=1`을 설정했다. 이게 뭔가?
+
+Python을 실행할 때 이 환경 변수를 설정하면, stdout과 stderr의 버퍼링을 완전히 끈다(unbuffered 모드). 매 `write()`마다 즉시 출력된다.
+
+왜 이걸 설정했는가? 위의 버퍼링 모드 표를 다시 보자. 터미널에 직접 연결하면 라인 버퍼링이지만, 파이프나 백그라운드로 실행하면 풀 버퍼링이 적용된다. 풀 버퍼링이면 `print()`를 수천 번 호출해도 버퍼가 가득 찰 때까지 `write()` System Call이 몇 번만 발생한다. 그러면 "print가 느리다"는 결과가 제대로 나오지 않는다.
+
+`PYTHONUNBUFFERED=1`을 설정하면, 어떤 환경에서 실행하든 매 `print()`마다 `write()` System Call이 발생하도록 강제할 수 있다. 측정 환경에 따라 결과가 왜곡되는 걸 방지하기 위한 설정이다.
+
+(이렇게 벤치마크에서는 "측정하고 싶은 것"만 정확히 측정되도록 환경을 통제하는 게 중요하다. 변수가 하나라도 잘못 설정되면 결과가 완전히 달라질 수 있다.)
 
 
 ## 전체 그림

@@ -4,16 +4,30 @@
 
 ---
 
+지금까지 `print()` 한 줄이 System Call과 모드 전환이라는 무거운 작업을 유발한다는 걸 확인했다. 같은 원리가 적용되는 다른 사례를 보고, 실무에서 어떻게 대응하는지 정리하겠다.
+
+
 ## 2-6. 유사 사례 소개
 
-같은 원리가 적용되는 사례는 도처에 있다.
+### logging 모듈도 예외가 아니다
 
-- Python의 `logging` 모듈도 결국 `StreamHandler`가 `sys.stderr`에 `write()`를 호출한다. 로그 레벨을 DEBUG로 설정해두고 운영에 나가면, 모든 디버그 메시지가 I/O를 유발한다.
-- 파일 쓰기(`open` + `write`)도 결국 `write()` System Call이다. 다만 파일은 보통 풀 버퍼링이 적용되어서, `print()`만큼 System Call이 잦지는 않다.
-- ORM(SQLAlchemy, JPA 등)의 쿼리 로그를 켜두면, 매 쿼리마다 SQL 문을 stdout에 쓴다. 이것도 System Call이다.
-- Java의 `System.out.println()`도 OS의 `write()` System Call로 이어진다. 언어가 달라도 운영체제 위에서 돌아가는 한, 같은 원리가 적용된다.
+Python의 `logging` 모듈은 `print()` 대신 쓰라고 만들어진 도구다. 그런데 이것도 결국 내부적으로 `StreamHandler`가 `sys.stderr`에 `write()`를 호출한다. System Call이 발생한다는 점에서는 `print()`와 다를 게 없다.
 
-핵심: "화면에 뭔가를 출력하는 행위"는 언어를 불문하고 System Call을 동반하며, System Call은 공짜가 아니다.
+문제는 로그 레벨 설정이다. 개발 중에 편하다고 DEBUG 레벨로 설정해두고 그 상태로 운영에 나가면, 모든 디버그 메시지가 I/O를 유발한다. print()를 수천 개 넣은 것과 다를 바 없는 상황이 되는 거다.
+
+### ORM 쿼리 로그
+
+SQLAlchemy나 JPA 같은 ORM에는 "실행되는 SQL을 로그로 찍어주는" 옵션이 있다. 개발 중에는 디버깅에 유용하다. 그런데 이걸 운영 환경에서 켜두면? 매 쿼리마다 SQL 문이 stdout이나 로그 파일에 쓰인다. 쿼리가 초당 수백~수천 건이면, 그만큼의 `write()` System Call이 추가로 발생한다.
+
+"쿼리 로그 끄니까 DB 부하가 줄었다"는 이야기를 가끔 듣는데, 실제로는 DB 부하가 아니라 애플리케이션 서버의 I/O 부하가 줄어든 경우가 많다.
+
+### 파일 쓰기도 같은 구조다
+
+`open()` + `write()`로 파일에 쓰는 것도 결국 `write()` System Call이다. 다만 파일은 보통 풀 버퍼링이 적용되어서, 줄바꿈마다 flush하는 `print()`만큼 System Call이 잦지는 않다. 그래도 "파일에 쓰는 행위 = System Call"이라는 본질은 같다.
+
+### 언어가 달라도 원리는 같다
+
+Java의 `System.out.println()`, Go의 `fmt.Println()`, Node.js의 `console.log()`. 언어가 달라도 운영체제 위에서 돌아가는 한, "화면에 뭔가를 출력하는 행위"는 System Call을 동반한다. System Call은 공짜가 아니다. 이건 특정 언어의 문제가 아니라 OS의 구조적 특성이다.
 
 
 ## 그래서 실무에서는 어떻게 하는가
@@ -21,6 +35,9 @@
 "print가 느리다는 건 알겠는데, 그러면 로그를 아예 안 찍으라는 건가?"
 
 아니다. 로그를 없애라는 게 아니라, 제어하라는 거다.
+
+
+### 1. 로그 레벨로 출력을 제어한다
 
 ```python
 import logging
@@ -38,13 +55,61 @@ logger.warning("이건 운영에서도 출력됨")
 
 `logging` 모듈을 쓰면 로그 레벨로 출력을 제어할 수 있다. 개발 환경에서는 DEBUG로 전부 보고, 운영 환경에서는 WARNING 이상만 출력하도록 설정하면, 불필요한 System Call을 원천 차단할 수 있다.
 
-요점은 이거다: `print()`는 디버깅 도구다. 운영 코드에 남기는 게 아니라, 용도에 맞는 도구(`logging`)를 쓰는 거다.
+핵심 전략은 이거다:
+
+| 환경 | 로그 레벨 | 이유 |
+|------|----------|------|
+| 개발(local) | DEBUG | 디버깅에 필요한 모든 정보를 본다 |
+| 스테이징(staging) | INFO | 흐름 추적은 하되 디버그 노이즈는 뺀다 |
+| 운영(production) | WARNING 이상 | 문제가 생겼을 때만 로그가 나온다 |
+
+
+### 2. 비동기 로깅으로 블로킹을 줄인다
+
+`logging` 모듈의 기본 핸들러는 동기(synchronous) 방식이다. 로그를 쓸 때마다 `write()` System Call이 완료될 때까지 기다린다. 요청 처리 중에 로그가 많으면 그만큼 응답이 느려진다.
+
+Python 3.2+에서는 `QueueHandler`와 `QueueListener`를 제공한다. 로그 메시지를 큐에 넣기만 하고, 별도 스레드에서 실제 I/O를 처리하는 방식이다. (스레드는 Ch.4에서 자세히 다룬다. 지금은 "로그 쓰는 작업을 다른 곳에 맡기는 구조"라고만 알아두면 된다.)
+
+```python
+import logging
+from logging.handlers import QueueHandler, QueueListener
+from queue import Queue
+
+# 큐 기반 비동기 로깅 설정
+log_queue = Queue()
+queue_handler = QueueHandler(log_queue)
+
+# 실제 출력은 별도 스레드에서
+stream_handler = logging.StreamHandler()
+listener = QueueListener(log_queue, stream_handler)
+listener.start()
+
+logger = logging.getLogger(__name__)
+logger.addHandler(queue_handler)
+```
+
+이러면 요청 처리 스레드는 큐에 메시지를 넣기만 하고(메모리 조작, 빠르다) 바로 다음 작업으로 넘어간다. `write()` System Call은 별도 스레드에서 처리된다.
+
+
+### 3. print()는 디버깅 도구다
+
+`print()`는 디버깅 도구다. 운영 코드에 남기는 게 아니다. 용도에 맞는 도구를 쓰자.
+
+| 도구 | 용도 | System Call 제어 |
+|------|------|----------------|
+| `print()` | 개발 중 즉석 디버깅 | 불가 (매번 발생) |
+| `logging` | 운영 환경 로그 | 레벨로 제어 가능 |
+| `logging` + `QueueHandler` | 고성능 운영 환경 | 비동기 처리로 블로킹 최소화 |
+
+(더 나아가면 structlog 같은 구조화된 로깅 라이브러리도 있다. 로그를 JSON 형태로 찍어서 로그 분석 도구(ELK, Datadog 등)에서 쉽게 파싱할 수 있게 만드는 건데, 이건 이 강의의 범위를 벗어나므로 관심 있으면 찾아보자.)
 
 ---
 
 ## 3. 오늘 키워드 정리
 
 이번 챕터에서 새로 등장한 키워드들을 정리한다.
+
+(Ch.1에서 "키워드를 모르면 검색도 못 하고 AI도 엉뚱한 답을 준다"고 했다. 이번 챕터에서 배운 System Call, I/O, Mode Switch 같은 키워드가 바로 그 예시다. "왜 느린지"를 설명하려면 이 키워드들이 있어야 한다.)
 
 <details>
 <summary>Bytecode (바이트코드)</summary>
@@ -79,7 +144,7 @@ Unix의 "Everything is a file" 철학의 핵심 개념이다.
 
 사용자 프로그램이 커널에게 하드웨어 관련 작업을 요청하는 인터페이스.
 `write()`, `read()`, `open()`, `close()`, `fork()` 등이 있다.
-모든 I/O 작업은 System Call을 통해야 한다.
+일반적인 파일/소켓 I/O 작업은 System Call을 통해야 한다.
 
 </details>
 
@@ -189,6 +254,8 @@ graph LR
     MS --> cycle["CPU Cycle"]
     write --> IO["I/O"]
     print -.-> bytecode["Bytecode"]
+
+    ch1["Ch.1 Keyword (키워드)"] -.->|"이 챕터의 모든 키워드"| print
 ```
 
 
