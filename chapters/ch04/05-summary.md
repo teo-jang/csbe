@@ -1,6 +1,6 @@
 # Ch.4 유사 사례와 키워드 정리
 
-[< Virtual Memory와 OOM](./03-virtual-memory.md)
+[< Stack Frame과 Virtual Memory](./04-virtual-memory.md)
 
 ---
 
@@ -353,6 +353,6 @@ graph LR
 
 ---
 
-[< Virtual Memory와 OOM](./03-virtual-memory.md)
+[< Stack Frame과 Virtual Memory](./04-virtual-memory.md)
 
 [< Ch.3 로그를 뺐더니 빨라졌어요? (2)](../ch03/README.md) | [Ch.5 동시성 제어의 기초 >](../ch05/README.md)
