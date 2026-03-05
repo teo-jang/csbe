@@ -19,14 +19,14 @@
 
 ```mermaid
 graph LR
-    KW["Keyword\n(키워드)"]
-    CT["Computational\nThinking"]
+    KW["Keyword<br/>(키워드)"]
+    CT["Computational<br/>Thinking"]
     WS["WORD size"]
     JD["JD"]
 
-    KW -->|"키워드를 알아야\n분해할 수 있다"| CT
-    KW -->|"키워드를 모르면\n검색도 못 한다"| JD
-    KW -->|"키워드를 모르면\n생기는 일의 예시"| WS
+    KW -->|"키워드를 알아야<br/>분해할 수 있다"| CT
+    KW -->|"키워드를 모르면<br/>검색도 못 한다"| JD
+    KW -->|"키워드를 모르면<br/>생기는 일의 예시"| WS
 ```
 
 ---
