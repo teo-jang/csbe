@@ -1,4 +1,4 @@
-# Ch.1 이 강의의 구조와 키워드 정리
+# Ch.1 커리큘럼과 키워드 정리
 
 [< 어떻게 공부할 것인가](./03-how-to-learn.md)
 
@@ -43,16 +43,31 @@ graph TB
 
 Part 1에서 쌓은 기초(OS, 프로세스, System Call 등)가 이후 모든 파트의 토대가 된다. 그래서 Part 1을 "기초 체력"이라고 부른다.
 
+월별 주제는 대략 이렇다 (변경될 수 있다):
+
+| 월 | 주제 |
+|------|------|
+| 1월 | Overview - 왜 CS를 공부해야 할까? |
+| 2월 | 로그를 뺐더니 빨라졌어요 - System Call, CPU Bound와 I/O Bound |
+| 3월 | contains() 쓰지 말라구요 - 자료구조 선택의 성능과 당위성 |
+| 4월 | JPA를 써서 DB를 모른다고요? - DB 관련 개발에서 명심해야 할 것 |
+| 5월 | Async 했는데 왜 안 빨라져요? - 동시성 제어, 전가의 보도는 없다 |
+| 6월 | 느리니까 Redis를 붙이고 생각해볼까요? - Cache 적용 시 고민해야 할 것 |
+| 7월 | 성능이 안 나오네, Replica를 200개로? - Bottleneck을 Computational하게 추론하기 |
+
 
 ## Ch.1 키워드 정리
 
 이번 챕터에서 등장한 키워드를 정리한다. Ch.1은 기술 챕터가 아니므로 메타 키워드(학습과 사고 방식에 관한 키워드) 위주다.
+
+본문에서 맛보기로 언급된 기술 키워드들(Sliding Window, Connection Pool, N+1, Virtual Thread, I/O Bound 등)은 이후 해당 챕터에서 자세히 다룬다. 지금은 "이런 게 있구나" 정도로만 보면 된다.
 
 <details>
 <summary>Computational Thinking (컴퓨팅 사고)</summary>
 
 문제를 CS 개념으로 분해하고, 각 구성 요소를 체계적으로 분석하여 해결하는 사고방식이다.
 "서버가 느리다" -> "CPU Bound인가? I/O Bound인가? Connection Pool인가?" 이런 식으로 문제를 쪼개는 능력.
+4단계로 구성된다: 분해(Decomposition), 패턴 인식(Pattern Recognition), 추상화(Abstraction), 알고리즘 디자인(Algorithm Design).
 
 출처: Wing, J. M. (2006). Computational thinking. Communications of the ACM, 49(3), 33-35.
 
