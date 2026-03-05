@@ -9,7 +9,7 @@ export const options = {
 };
 
 const imageIndex = 1;
-const urlIndex = 0;
+const urlIndex = 0; // 0: sync, 1: asyncio, 2: threadpool, 3: processpool
 
 const images = [
     open('./test_image_1.png'), // chunsik

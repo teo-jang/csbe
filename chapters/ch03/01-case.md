@@ -68,12 +68,12 @@ Ch.2에서 `print()` 한 줄이 API를 수십~수백 배 느리게 만든다는 
 
 | 방식 | 평균 응답 시간 | p95 응답 시간 | 처리량 (req/s) |
 |------|-------------|-----|--------------|
-| sync (동기) | 169ms | 371ms | 16.7 |
-| asyncio | 1,410ms | 1,650ms | 7.8 |
-| ThreadPool | 154ms | 314ms | 17.0 |
-| ProcessPool | 199ms | 515ms | 16.4 |
+| sync (동기) | 257ms | 404ms | 15.7 |
+| asyncio | 1,420ms | 1,440ms | 8.2 |
+| ThreadPool | 215ms | 347ms | 16.1 |
+| ProcessPool | 313ms | 570ms | 14.9 |
 
-(측정 환경: M1 MacBook, Python 3.12, uvicorn, k6 20 VUs / 10s, 이미지: 1.4MB JPG)
+(측정 환경: M1 MacBook, Python 3.12, uvicorn, k6 20 VUs / 10s, 이미지: 1.4MB JPG, MySQL 8.0 localhost/Podman)
 
 <details>
 <summary>p95 (95th Percentile, 95번째 백분위수)</summary>
@@ -86,10 +86,10 @@ Ch.2에서 `print()` 한 줄이 API를 수십~수백 배 느리게 만든다는 
 
 예상과 다른 결과가 나왔을 수 있다. 핵심 관찰 포인트:
 
-1. asyncio가 가장 느리다. 동기보다 8배 이상 느리다.
-2. ThreadPool은 동기와 거의 같다.
-3. ProcessPool도 동기와 비슷하다. (약간 느리기까지 하다.)
-4. 가장 빠른 건 ThreadPool이지만, 동기와 큰 차이가 없다.
+1. asyncio가 가장 느리다. 동기보다 약 5.5배 느리다.
+2. ThreadPool은 동기와 거의 같다. (오히려 약간 빠르다.)
+3. ProcessPool은 동기보다 느리다. IPC 오버헤드가 보인다.
+4. 가장 빠른 건 ThreadPool이지만, 동기와 극적인 차이는 없다.
 
 "async로 했더니 오히려 느려졌다?"
 
@@ -306,7 +306,7 @@ k6 run k6/uploader/240615_upload_test.js \
 
 직접 돌려보고, 3-3의 표와 비교해보자.
 
-정리하면: async로 바꿨더니 8배 느려졌다. ThreadPool은 동기와 비슷하다. ProcessPool도 극적인 차이가 없다. 왜 이런 일이 벌어지는가? 작업의 성격, 그러니까 CPU Bound와 I/O Bound의 차이부터 짚어야 한다.
+정리하면: async로 바꿨더니 5배 이상 느려졌다. ThreadPool은 동기와 비슷하다. ProcessPool도 극적인 차이가 없다. 왜 이런 일이 벌어지는가? 작업의 성격, 그러니까 CPU Bound와 I/O Bound의 차이부터 짚어야 한다.
 
 ---
 
