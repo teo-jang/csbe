@@ -78,3 +78,9 @@ nav:
       - 사례 B - Lock을 걸었더니 먹통: ch05/03-case-deadlock.md
       - Deadlock의 조건과 Semaphore: ch05/04-deadlock-conditions.md
       - 유사 사례와 키워드 정리: ch05/05-summary.md
+  - Ch.6 네트워크 기초:
+      - 환경 세팅: ch06/README.md
+      - 사례 - 서버는 살아있는데 요청이 실패한다: ch06/01-case-connection-pool.md
+      - TCP/IP와 Socket: ch06/02-tcp-socket.md
+      - Connection Pool과 Keep-Alive: ch06/03-connection-pool.md
+      - 유사 사례와 키워드 정리: ch06/04-summary.md
