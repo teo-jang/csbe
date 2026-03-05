@@ -64,3 +64,9 @@ nav:
       - CPU Bound vs I/O Bound: ch03/02-cpu-io-bound.md
       - GIL과 동시성 전략: ch03/03-concurrency-gil.md
       - 유사 사례와 키워드 정리: ch03/04-summary.md
+  - Ch.4 프로세스와 스레드:
+      - 환경 세팅: ch04/README.md
+      - 사례와 코드: ch04/01-case.md
+      - Memory Layout: ch04/02-memory-layout.md
+      - Virtual Memory와 OOM: ch04/03-virtual-memory.md
+      - 유사 사례와 키워드 정리: ch04/04-summary.md

@@ -123,3 +123,68 @@ graph LR
     ch2_io["Ch.2 I/O"] -.->|"I/O Bound의 I/O"| IB
     ch2_ms["Ch.2 Mode Switch"] -.->|"vs"| CS
 ```
+
+---
+
+## Ch.4 - 프로세스와 스레드, 진짜로 이해하고 있는가
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Process | 새 키워드 | 실행 중인 프로그램의 인스턴스, 독립적인 메모리 공간을 가진다 |
+| Thread | 새 키워드 | 프로세스 안의 경량 실행 단위, Stack만 별도이고 나머지 메모리를 공유 |
+| PCB (Process Control Block) | 새 키워드 | 운영체제가 프로세스를 관리하기 위한 자료구조 |
+| TCB (Thread Control Block) | 새 키워드 | 운영체제가 스레드를 관리하기 위한 자료구조 |
+| Memory Layout | 새 키워드 | 프로세스의 가상 주소 공간 구성 (Text, Data, Heap, Stack) |
+| Text Segment | 새 키워드 | 실행 코드(기계어)가 저장되는 Read-only 영역 |
+| Data Segment | 새 키워드 | 전역/static 변수가 저장되는 영역 |
+| Heap | 새 키워드 | 동적 할당 메모리 영역, 아래에서 위로 자란다 |
+| Stack | 새 키워드 | 함수 호출 정보(Stack Frame)가 저장되는 고정 크기 영역 |
+| Stack Frame | 새 키워드 | 함수 호출 시 Stack에 쌓이는 데이터 묶음 (매개변수, 지역변수, 복귀주소) |
+| Virtual Memory | 새 키워드 | OS가 프로세스에게 제공하는 가상의 메모리 주소 공간 |
+| Physical Memory | 새 키워드 | 실제 RAM, 크기가 물리적으로 고정 |
+| Page / Page Table | 새 키워드 | 가상 메모리를 4KB 블록으로 관리, Page Table이 가상→물리 주소 변환 |
+| Page Fault | 새 키워드 | 물리 메모리에 없는 Page 접근 시 발생하는 인터럽트 |
+| OOM (Out of Memory) | 새 키워드 | 사용 가능한 메모리가 모두 소진된 상태 |
+| RSS (Resident Set Size) | 새 키워드 | 프로세스가 실제로 물리 메모리에 올려놓은 데이터 크기 |
+| Thrashing | 새 키워드 | Page In/Out이 끊임없이 반복되어 시스템이 극도로 느려지는 상태 |
+| Context Switch | 재등장 (Ch.3) | PCB/TCB를 저장하고 복원하는 과정이라는 구체적 의미 |
+| Mode Switch | 재등장 (Ch.2) | Page Fault 시 User→Kernel 전환이 발생 |
+| Kernel | 재등장 (Ch.2) | Virtual Memory를 관리하는 주체, Page Fault 처리 |
+| GIL | 재등장 (Ch.3) | 스레드의 Heap 공유와 연결, Reference Counting 보호 |
+| Thread Pool / Process Pool | 재등장 (Ch.3) | 메모리 관점에서의 비용 차이를 이해 |
+| IPC | 재등장 (Ch.3) | 프로세스가 메모리를 분리하기 때문에 IPC가 필요 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    PROC["Process"] --> PCB
+    THREAD["Thread"] --> TCB
+    PROC --> ML["Memory Layout"]
+    ML --> STACK["Stack"]
+    ML --> HEAP["Heap"]
+    ML --> DATA["Data Segment"]
+    ML --> TEXT["Text Segment"]
+    STACK --> SF["Stack Frame"]
+    STACK -->|"넘치면"| SO["Stack Overflow"]
+    HEAP -->|"끝없이 자라면"| OOM
+
+    PROC --> VM["Virtual Memory"]
+    VM --> PT["Page Table"]
+    VM --> PM["Physical Memory"]
+    PT --> PF["Page Fault"]
+    PF -.->|"Ch.2"| MS["Mode Switch"]
+    PM -->|"꽉 차면"| OOM
+    VM --> RSS
+
+    PROC -->|"전환 시"| CS["Context Switch<br/>(Ch.3)"]
+    CS --> PCB
+    THREAD -->|"Stack만 별도<br/>나머지 공유"| ML
+    THREAD -.->|"Ch.3"| GIL
+
+    ch3_tp["Ch.3 Thread Pool"] -.->|"메모리 공유"| THREAD
+    ch3_pp["Ch.3 Process Pool"] -.->|"메모리 분리"| PROC
+
+    style OOM fill:#f96,stroke:#333
+    style SO fill:#f96,stroke:#333
+```
