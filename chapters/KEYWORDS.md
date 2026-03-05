@@ -188,3 +188,56 @@ graph LR
     style OOM fill:#f96,stroke:#333
     style SO fill:#f96,stroke:#333
 ```
+
+---
+
+## Ch.5 - 동시성 제어의 기초 - Mutex에서 Deadlock까지
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Race Condition | 새 키워드 | 여러 스레드가 공유 자원에 동시 접근 시 실행 순서에 따라 결과가 달라지는 상황 |
+| Critical Section | 새 키워드 | 동시에 두 개 이상의 스레드가 실행하면 안 되는 코드 구간 |
+| Atomicity | 새 키워드 | 연산이 "다 되거나 아예 안 되거나"하는 성질 |
+| Mutex / Lock | 새 키워드 | Critical Section에 한 번에 하나의 스레드만 들어갈 수 있게 하는 잠금 장치 |
+| Deadlock | 새 키워드 | 두 개 이상의 스레드가 서로의 자원을 기다리며 영원히 멈추는 상태 |
+| Mutual Exclusion | 새 키워드 | 자원을 한 번에 하나의 스레드만 사용할 수 있는 조건 (Deadlock 필요조건) |
+| Hold and Wait | 새 키워드 | 자원을 잡고 있으면서 다른 자원을 기다리는 상태 (Deadlock 필요조건) |
+| No Preemption | 새 키워드 | 다른 스레드의 자원을 강제로 빼앗을 수 없는 조건 (Deadlock 필요조건) |
+| Circular Wait | 새 키워드 | A→B→A 순환 대기 구조 (Deadlock 필요조건) |
+| Lock Ordering | 새 키워드 | Lock을 항상 정해진 순서로 잡아서 Deadlock을 방지하는 기법 |
+| Semaphore | 새 키워드 | 동시에 N개 스레드까지 접근을 허용하는 카운팅 잠금 |
+| Starvation | 새 키워드 | Lock 경쟁에서 특정 스레드가 계속 밀려 실행 기회를 못 얻는 상태 |
+| Thread | 재등장 (Ch.4) | Race Condition의 주체, Heap 공유가 원인 |
+| Heap | 재등장 (Ch.4) | 스레드 간 공유 데이터가 위치하는 곳 |
+| GIL | 재등장 (Ch.3) | bytecode 단위만 보호, 복합 연산의 Race Condition은 못 막음 |
+| Context Switch | 재등장 (Ch.3) | Critical Section 중간에 발생하면 Race Condition 트리거 |
+| Thread Pool | 재등장 (Ch.3) | FastAPI 요청 핸들러가 ThreadPool에서 실행됨 |
+| File Descriptor | 재등장 (Ch.2) | 파일 잠금 사례, open/close = acquire/release |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    THREAD["Thread<br/>(Ch.4)"] -->|"Heap 공유"| HEAP["Heap<br/>(Ch.4)"]
+    HEAP -->|"동시 접근"| RC["Race Condition"]
+    RC -->|"보호 구간"| CS["Critical Section"]
+    CS -->|"보호 수단"| MUTEX["Mutex / Lock"]
+    MUTEX -->|"보장"| ATOM["Atomicity"]
+    MUTEX -->|"잘못 쓰면"| DL["Deadlock"]
+
+    DL --> ME["Mutual Exclusion"]
+    DL --> HW["Hold and Wait"]
+    DL --> NP["No Preemption"]
+    DL --> CW["Circular Wait"]
+    CW -->|"해결"| LO["Lock Ordering"]
+
+    MUTEX -->|"일반화"| SEM["Semaphore"]
+    SEM -->|"N=1이면"| MUTEX
+
+    GIL["GIL<br/>(Ch.3)"] -.->|"bytecode 단위만"| RC
+    CTXSW["Context Switch<br/>(Ch.3)"] -.->|"트리거"| RC
+    FD["File Descriptor<br/>(Ch.2)"] -.->|"파일 잠금"| MUTEX
+
+    style DL fill:#f96,stroke:#333
+    style RC fill:#f96,stroke:#333
+```

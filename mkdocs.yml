@@ -71,3 +71,10 @@ nav:
       - 사례 B - 카테고리 경로 조회: ch04/03-case-stack.md
       - Stack Frame과 Virtual Memory: ch04/04-virtual-memory.md
       - 유사 사례와 키워드 정리: ch04/05-summary.md
+  - Ch.5 동시성 제어의 기초:
+      - 환경 세팅: ch05/README.md
+      - 사례 A - 재고가 마이너스가 됐다: ch05/01-case-race-condition.md
+      - Critical Section과 Lock: ch05/02-critical-section.md
+      - 사례 B - Lock을 걸었더니 먹통: ch05/03-case-deadlock.md
+      - Deadlock의 조건과 Semaphore: ch05/04-deadlock-conditions.md
+      - 유사 사례와 키워드 정리: ch05/05-summary.md
