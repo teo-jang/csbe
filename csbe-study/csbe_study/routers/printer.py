@@ -1,4 +1,4 @@
-import asyncio
+import asyncio  # Ch.3 (CPU Bound vs I/O Bound) 에서 사용
 
 from fastapi import APIRouter
 

@@ -18,13 +18,13 @@
 
 이번 챕터에서 사용할 도구는 다음과 같다.
 
-| 도구 | 버전 | 용도 |
-|------|------|------|
-| Python | 3.12+ | 서버, bytecode 분석 |
-| FastAPI | 0.111+ | 테스트용 API 서버 |
-| uvicorn | - | ASGI 서버 |
-| k6 | 최신 | 부하 테스트 |
-| dis (Python 내장) | - | bytecode 분석 (별도 설치 불필요) |
+| 도구 | 버전 | 용도 | 왜 이걸 쓰는가 |
+|------|------|------|---------------|
+| Python | 3.12+ | 서버, bytecode 분석 | 이 강의의 기본 언어 |
+| FastAPI | 0.111+ | 테스트용 API 서버 | 가볍고 빠르다. 비동기 지원도 쉬움 |
+| uvicorn | - | ASGI 서버 | FastAPI의 기본 서버 |
+| k6 | 최신 | 부하 테스트 | Go로 만들어서 Python 기반 도구(Locust 등)보다 가볍고 강력하다 |
+| dis (Python 내장) | - | bytecode 분석 | 설치 없이, 내 코드가 내부적으로 어떻게 변환되는지 바로 볼 수 있다 |
 
 <details>
 <summary>k6</summary>
@@ -48,12 +48,14 @@ Python의 경우 `.py` 파일을 실행하면 내부적으로 bytecode로 변환
 설치 확인:
 
 ```bash
-python3 --version         # Python 버전 확인
-uv pip install fastapi uvicorn  # FastAPI + uvicorn 설치 (uv 사용 시)
+python3 --version         # Python 3.12+ 확인
+cd csbe-study && poetry install  # 의존성 설치
 k6 version                # k6 설치 확인
 ```
 
 `dis` 모듈은 Python 내장이라 별도 설치가 필요 없다. Python이 내 코드를 내부적으로 어떻게 처리하는지(bytecode) 들여다볼 수 있는 도구다.
+
+참고: 이번 챕터의 벤치마크는 서버를 `PYTHONUNBUFFERED=1` 환경에서 실행한다. 이게 뭔지, 왜 필요한지는 [03-syscall-cost.md](./03-syscall-cost.md)의 Buffer 섹션에서 설명한다. 지금은 "벤치마크 결과를 정확하게 만들기 위한 설정"이라고만 알아두면 된다.
 
 ---
 
