@@ -6,6 +6,31 @@
 
 ---
 
+## Ch.1 - 왜 CS를 공부해야 하는가
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Computational Thinking | 새 키워드 | 문제를 CS 개념으로 분해하고 해결하는 사고방식 |
+| Keyword (키워드) | 새 키워드 | CS 개념을 지칭하는 용어, 검색과 AI 활용의 출발점 |
+| WORD size | 새 키워드 | CPU가 한 번에 처리하는 데이터의 기본 단위 크기 |
+| JD (Job Description) | 새 키워드 | 채용 공고에 명시된 직무 요구사항 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    KW["Keyword\n(키워드)"]
+    CT["Computational\nThinking"]
+    WS["WORD size"]
+    JD["JD"]
+
+    KW -->|"키워드를 알아야\n분해할 수 있다"| CT
+    KW -->|"키워드를 모르면\n검색도 못 한다"| JD
+    KW -->|"키워드를 모르면\n생기는 일의 예시"| WS
+```
+
+---
+
 ## Ch.2 - 로그를 뺐더니 빨라졌어요? (1) - System Call과 커널
 
 | 키워드 | 분류 | 한 줄 설명 |
