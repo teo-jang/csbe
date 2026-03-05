@@ -68,3 +68,58 @@ graph LR
     write --> IO["I/O"]
     print -.-> bytecode["Bytecode"]
 ```
+
+---
+
+## Ch.3 - 로그를 뺐더니 빨라졌어요? (2) - CPU Bound와 I/O Bound
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| CPU Bound | 새 키워드 | 실행 속도가 CPU 연산 능력에 의해 제한되는 상태 |
+| I/O Bound | 새 키워드 | 실행 속도가 I/O 속도에 의해 제한되는 상태 |
+| Blocking I/O | 새 키워드 | I/O 완료까지 호출 측이 멈추고 기다리는 방식 |
+| Non-blocking I/O | 새 키워드 | I/O 요청 후 바로 돌아오는 방식 |
+| Context Switch | 새 키워드 | 실행 중인 프로세스/스레드를 다른 것으로 전환 |
+| GIL | 새 키워드 | CPython에서 한 번에 하나의 스레드만 바이트코드 실행 가능하게 하는 잠금 |
+| Event Loop | 새 키워드 | asyncio의 핵심 엔진, 단일 스레드에서 비동기 작업 스케줄링 |
+| Coroutine | 새 키워드 | 실행을 중간에 멈췄다가 이어서 실행할 수 있는 함수 |
+| async/await | 새 키워드 | Python 비동기 프로그래밍 문법 |
+| Thread Pool | 새 키워드 | 미리 생성된 스레드 묶음에 작업을 분배하는 구조 |
+| Process Pool | 새 키워드 | 미리 생성된 프로세스 묶음에 작업을 분배하는 구조 |
+| Concurrency | 새 키워드 | 여러 작업이 논리적으로 동시에 진행되는 것 |
+| Parallelism | 새 키워드 | 여러 작업이 물리적으로 같은 순간에 실행되는 것 |
+| IPC | 새 키워드 | 프로세스 간 데이터 교환 (Inter-Process Communication) |
+| I/O | 재등장 (Ch.2) | I/O Bound의 "I/O" |
+| Mode Switch | 재등장 (Ch.2) | Context Switch와 비교 대상 |
+| Throughput | 재등장 (Ch.2) | 벤치마크에서 req/s 비교에 사용 |
+| Latency | 재등장 (Ch.2) | 벤치마크에서 응답 시간 비교에 사용 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    CB["CPU Bound"] --> GIL
+    IB["I/O Bound"] --> BIO["Blocking I/O"]
+    IB --> NBIO["Non-blocking I/O"]
+
+    GIL -->|"CPU Bound에서<br/>스레드 무의미"| TP["Thread Pool"]
+    GIL -->|"우회"| PP["Process Pool"]
+
+    NBIO --> EL["Event Loop"]
+    EL --> CR["Coroutine"]
+    CR --> AA["async/await"]
+
+    CB -->|"추천"| PP
+    IB -->|"추천"| AA
+    IB -->|"추천"| TP
+
+    PP --> PAR["Parallelism"]
+    TP --> CON["Concurrency"]
+    EL --> CON
+
+    CS["Context Switch"] --> TP
+    CS --> PP
+
+    ch2_io["Ch.2 I/O"] -.->|"I/O Bound의 I/O"| IB
+    ch2_ms["Ch.2 Mode Switch"] -.->|"vs"| CS
+```

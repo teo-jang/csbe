@@ -60,4 +60,3 @@ class BaseRepository:
                     text("INSERT INTO images(image_path) VALUES(:image_path)"),
                     image_path,
                 )
-            await session.commit()
