@@ -58,3 +58,9 @@ nav:
       - print()는 어디로 가는가: ch02/02-print-internals.md
       - System Call이 왜 비싼가: ch02/03-syscall-cost.md
       - 유사 사례와 키워드 정리: ch02/04-summary.md
+  - Ch.3 CPU Bound와 I/O Bound:
+      - 환경 세팅: ch03/README.md
+      - 사례와 코드: ch03/01-case.md
+      - CPU Bound vs I/O Bound: ch03/02-cpu-io-bound.md
+      - GIL과 동시성 전략: ch03/03-concurrency-gil.md
+      - 유사 사례와 키워드 정리: ch03/04-summary.md
