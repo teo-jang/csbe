@@ -241,3 +241,49 @@ graph LR
     style DL fill:#f96,stroke:#333
     style RC fill:#f96,stroke:#333
 ```
+
+---
+
+## Ch.6 - 네트워크 기초: 3-way handshake를 넘어서
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| TCP/IP | 새 키워드 | 인터넷 통신의 기본 프로토콜 모음, TCP가 신뢰성, IP가 주소 지정 담당 |
+| TCP | 새 키워드 | Connection-oriented 프로토콜, 순서 보장과 재전송 제공 |
+| UDP | 새 키워드 | Connectionless 프로토콜, 빠르지만 신뢰성 없음 |
+| Socket | 새 키워드 | 네트워크 통신의 끝점, OS 관점에서 File Descriptor |
+| 3-Way Handshake | 새 키워드 | TCP Connection 수립 과정 (SYN → SYN-ACK → ACK) |
+| 4-Way Handshake | 새 키워드 | TCP Connection 종료 과정 (FIN → ACK → FIN → ACK) |
+| Connection Pool | 새 키워드 | 미리 N개의 Connection을 만들어두고 재활용하는 구조 |
+| Keep-Alive | 새 키워드 | TCP Connection을 유지하면서 여러 요청에 재활용하는 기법 |
+| TIME_WAIT | 새 키워드 | Connection을 먼저 끊은 쪽이 2MSL 동안 유지하는 대기 상태 (OS마다 다름) |
+| CLOSE_WAIT | 새 키워드 | close()를 호출하지 않아 Connection이 해제되지 않는 상태 |
+| File Descriptor | 재등장 (Ch.2) | Socket도 fd다, Connection 하나 = fd 하나 |
+| System Call | 재등장 (Ch.2) | socket(), connect(), close() 전부 System Call |
+| Semaphore | 재등장 (Ch.5) | Connection Pool = Semaphore(N) |
+| Blocking I/O | 재등장 (Ch.3) | Pool 고갈 시 빈 Connection을 기다리며 블로킹 |
+| Context Manager | 재등장 (Ch.5) | with engine.connect() = acquire/release 자동화 |
+| Throughput / Latency | 재등장 (Ch.2) | Pool vs NullPool 벤치마크 비교 지표 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    TCP["TCP"] -->|"연결 수립"| TH["3-Way<br/>Handshake"]
+    TCP -->|"연결 종료"| FH["4-Way<br/>Handshake"]
+    TCP -->|"vs"| UDP["UDP"]
+
+    TH -->|"비용이 크니까"| CP["Connection Pool"]
+    FH -->|"먼저 끊은 쪽"| TW["TIME_WAIT"]
+    FH -->|"close 안 하면"| CW["CLOSE_WAIT"]
+
+    CP -->|"유지"| KA["Keep-Alive"]
+    CP -.->|"Ch.5 같은 원리"| SEM["Semaphore<br/>(Ch.5)"]
+
+    SK["Socket"] -->|"= fd"| FD["File Descriptor<br/>(Ch.2)"]
+    SK -->|"System Call"| SC["System Call<br/>(Ch.2)"]
+    TCP --> SK
+
+    style TW fill:#f96,stroke:#333
+    style CW fill:#f96,stroke:#333
+```
