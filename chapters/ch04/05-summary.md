@@ -102,29 +102,36 @@ io_workers = cpu_count * 2
 
 Ch.3에서 "CPU Bound에는 ProcessPool"이라고 했지만, 워커 수는 코어 수를 넘기지 않는 게 안전하다. 코어 수를 초과하면 실제 병렬 처리 이점 없이 메모리만 낭비한다.
 
-### 2. 재귀 대신 반복을 쓴다
+### 2. 자료구조를 활용해서 재귀를 없앤다
 
-Stack Overflow의 위험이 있는 재귀는 반복으로 바꿀 수 있다:
+사례 B에서 봤듯이, dict에 ID 기반으로 저장된 데이터를 굳이 루트부터 재귀로 탐색할 이유가 없다:
 
 ```python
-# 재귀 (Stack Overflow 위험)
-def factorial_recursive(n):
-    if n <= 1:
-        return 1
-    return n * factorial_recursive(n - 1)
+# 루트부터 재귀 DFS (Stack Overflow 위험, O(N x D))
+def _find_from_root_recursive(tree, target_id, current_id=0):
+    if current_id == target_id:
+        return [tree[current_id]["name"]]
+    children = [cid for cid, cat in tree.items() if cat["parent_id"] == current_id]
+    for child_id in children:
+        result = _find_from_root_recursive(tree, target_id, child_id)
+        if result is not None:
+            return [tree[current_id]["name"]] + result
+    return None
 
-# 반복 (Stack Overflow 없음)
-def factorial_iterative(n):
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-    return result
+# ID로 직접 접근 + parent 따라 올라가기 (Stack Overflow 없음, O(depth))
+def _find_by_direct_lookup(tree, target_id):
+    path = []
+    current = target_id
+    while current is not None:
+        path.append(tree[current]["name"])
+        current = tree[current]["parent_id"]
+    return list(reversed(path))
 ```
 
 트리 탐색처럼 재귀가 자연스러운 경우에도, 명시적 Stack(리스트)을 사용하면 Heap에 데이터를 쌓으므로 Stack 크기 제한에 걸리지 않는다:
 
 ```python
-# 재귀 (Stack에 Frame이 쌓임)
+# 재귀 DFS (Stack에 Frame이 쌓임)
 def dfs_recursive(node):
     visit(node)
     for child in node.children:
