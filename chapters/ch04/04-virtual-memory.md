@@ -4,7 +4,7 @@
 
 ---
 
-앞에서 재귀 API가 깊이 1000에서 RecursionError를 내뱉고, setrecursionlimit으로 올리면 Segfault로 죽는 걸 확인했다. 그리고 Heap에 데이터를 쌓으면 선형으로 메모리가 자라는 것도 봤다. Stack은 고정 크기라 넘치면 죽고, Heap은 (거의) 무한히 자란다. 이게 어떻게 가능한 건가?
+앞에서 카테고리 경로 조회 API가 깊이 1000에서 RecursionError를 내뱉고, setrecursionlimit으로 올리면 Segfault로 죽는 걸 확인했다. 그리고 Heap에 데이터를 쌓으면 선형으로 메모리가 자라는 것도 봤다. Stack은 고정 크기라 넘치면 죽고, Heap은 (거의) 무한히 자란다. 이게 어떻게 가능한 건가?
 
 먼저 Stack에서 무슨 일이 벌어지는지부터 보고, 그 다음에 Virtual Memory로 넘어간다.
 
@@ -19,18 +19,18 @@
 
 </details>
 
-사례 B를 다시 보자. `_recurse(1000)`을 호출하면:
+사례 B를 다시 보자. 깊이 1000인 카테고리 트리에서 가장 깊은 카테고리를 루트부터 재귀 DFS로 찾으면:
 
 ```
-Stack Frame 1000: _recurse(1000, 999)
-Stack Frame 999:  _recurse(1000, 998)
+Stack Frame 1000: _find_from_root_recursive(tree, 999, 999)
+Stack Frame 999:  _find_from_root_recursive(tree, 999, 998)
 ...
-Stack Frame 2:    _recurse(1000, 1)
-Stack Frame 1:    _recurse(1000, 0)
-Stack Frame 0:    recursive_test(1000)
+Stack Frame 2:    _find_from_root_recursive(tree, 999, 1)
+Stack Frame 1:    _find_from_root_recursive(tree, 999, 0)
+Stack Frame 0:    category_recursive_search(1000)
 ```
 
-Stack Frame이 1000개 이상 쌓인다. 각 프레임이 차지하는 공간은 작지만, 수가 많으면 Stack 영역의 크기를 초과한다.
+Stack Frame이 1000개 이상 쌓인다. 각 프레임에는 `tree`, `target_id`, `current_id`, `children`, `result` 등의 지역 변수가 들어 있다. 프레임 하나하나는 작지만, 수가 많으면 Stack 영역의 크기를 초과한다.
 
 Python의 기본 재귀 제한(1000)은 이 상황을 방지하기 위한 안전장치다. OS Stack 크기(보통 8MB)를 초과하기 전에 Python이 먼저 `RecursionError`를 던진다.
 

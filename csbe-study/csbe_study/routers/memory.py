@@ -52,6 +52,59 @@ def _thread_worker_info():
 
 
 # ─────────────────────────────────────────
+# 카테고리 트리 (사례 B: 재귀 탐색 vs 직접 조회)
+# ─────────────────────────────────────────
+
+
+def _build_category_tree(depth):
+    """깊이 depth인 일직선 카테고리 트리를 생성한다.
+
+    실제 서비스에서는 DB에 저장되지만, 여기서는 dict로 시뮬레이션.
+    ID를 키로 쓰므로 O(1) 직접 접근이 가능한 구조다.
+    """
+    tree = {}
+    for i in range(depth):
+        tree[i] = {
+            "name": f"category-{i}",
+            "parent_id": i - 1 if i > 0 else None,
+        }
+    return tree
+
+
+def _find_from_root_recursive(tree, target_id, current_id=0):
+    """루트(ID 0)부터 재귀 DFS로 타겟 카테고리를 찾는다 (비효율적).
+
+    모든 자식을 순회하면서 타고 내려가기 때문에,
+    트리 깊이가 깊으면 RecursionError가 발생한다.
+    """
+    if current_id == target_id:
+        return [tree[current_id]["name"]]
+    # 현재 노드의 자식을 찾기 위해 전체 트리를 순회한다
+    children = [cid for cid, cat in tree.items() if cat["parent_id"] == current_id]
+    for child_id in children:
+        result = _find_from_root_recursive(tree, target_id, child_id)
+        if result is not None:
+            return [tree[current_id]["name"]] + result
+    return None
+
+
+def _find_by_direct_lookup(tree, target_id):
+    """ID로 직접 접근 후 parent를 따라 올라간다 (효율적).
+
+    재귀 없이 while 루프로 처리. Stack Overflow 위험 없음.
+    트리 깊이가 얼마든 상관없다.
+    """
+    if target_id not in tree:
+        return None
+    path = []
+    current = target_id
+    while current is not None:
+        path.append(tree[current]["name"])
+        current = tree[current]["parent_id"]
+    return list(reversed(path))
+
+
+# ─────────────────────────────────────────
 # 엔드포인트
 # ─────────────────────────────────────────
 
@@ -112,29 +165,47 @@ def thread_test(count: int):
     }
 
 
-@router.get("/recursive/{depth}")
-def recursive_test(depth: int):
-    """지정된 깊이까지 재귀 호출"""
-
-    def _recurse(n, current=0):
-        if current >= n:
-            return current
-        return _recurse(n, current + 1)
+@router.get("/category/recursive/{depth}")
+def category_recursive_search(depth: int):
+    """루트부터 재귀 DFS로 가장 깊은 카테고리의 경로를 찾는다"""
+    tree = _build_category_tree(depth)
+    target_id = depth - 1  # 가장 깊은 카테고리
 
     try:
-        result = _recurse(depth)
+        result = _find_from_root_recursive(tree, target_id)
         return {
             "depth": depth,
+            "target_id": target_id,
+            "method": "recursive_dfs",
             "result": "success",
+            "path_length": len(result) if result else 0,
             "recursion_limit": sys.getrecursionlimit(),
         }
     except RecursionError as e:
         return {
             "depth": depth,
+            "target_id": target_id,
+            "method": "recursive_dfs",
             "result": "RecursionError",
             "message": str(e),
             "recursion_limit": sys.getrecursionlimit(),
         }
+
+
+@router.get("/category/iterative/{depth}")
+def category_iterative_search(depth: int):
+    """ID로 직접 접근 후 parent를 따라 올라간다"""
+    tree = _build_category_tree(depth)
+    target_id = depth - 1
+
+    result = _find_by_direct_lookup(tree, target_id)
+    return {
+        "depth": depth,
+        "target_id": target_id,
+        "method": "direct_lookup",
+        "result": "success",
+        "path_length": len(result) if result else 0,
+    }
 
 
 @router.get("/heap-growth")
