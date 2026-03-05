@@ -1,12 +1,44 @@
-# Ch.4 CS Drill Down (2) - Virtual Memory와 OOM
+# Ch.4 왜 이렇게 되는가 - Stack Frame과 Virtual Memory
 
-[< Memory Layout](./02-memory-layout.md) | [유사 사례와 키워드 정리 >](./04-summary.md)
+[< 사례 B: 재귀 API가 죽는다](./03-case-stack.md) | [유사 사례와 키워드 정리 >](./05-summary.md)
 
 ---
 
-앞에서 각 프로세스가 독립적인 메모리 공간을 가진다는 걸 확인했다. 그런데 프로세스가 16개이고 각각 60MB를 쓰면 960MB다. 프로세스가 100개면? 물리 메모리(RAM)가 모자라면 어떻게 되는가?
+앞에서 재귀 API가 깊이 1000에서 RecursionError를 내뱉고, setrecursionlimit으로 올리면 Segfault로 죽는 걸 확인했다. 그리고 Heap에 데이터를 쌓으면 선형으로 메모리가 자라는 것도 봤다. Stack은 고정 크기라 넘치면 죽고, Heap은 (거의) 무한히 자란다. 이게 어떻게 가능한 건가?
 
-답은 Virtual Memory다.
+먼저 Stack에서 무슨 일이 벌어지는지부터 보고, 그 다음에 Virtual Memory로 넘어간다.
+
+
+## Stack Frame과 Stack Overflow
+
+<details>
+<summary>Stack Frame (스택 프레임)</summary>
+
+함수 하나가 호출될 때 Stack에 쌓이는 데이터 묶음이다. 매개변수, 지역 변수, 복귀 주소(함수가 끝나면 돌아갈 위치) 등이 포함된다.
+함수가 끝나면 해당 Stack Frame이 제거된다. 재귀 함수는 자기 자신을 호출할 때마다 Stack Frame이 하나씩 추가로 쌓인다.
+
+</details>
+
+사례 B를 다시 보자. `_recurse(1000)`을 호출하면:
+
+```
+Stack Frame 1000: _recurse(1000, 999)
+Stack Frame 999:  _recurse(1000, 998)
+...
+Stack Frame 2:    _recurse(1000, 1)
+Stack Frame 1:    _recurse(1000, 0)
+Stack Frame 0:    recursive_test(1000)
+```
+
+Stack Frame이 1000개 이상 쌓인다. 각 프레임이 차지하는 공간은 작지만, 수가 많으면 Stack 영역의 크기를 초과한다.
+
+Python의 기본 재귀 제한(1000)은 이 상황을 방지하기 위한 안전장치다. OS Stack 크기(보통 8MB)를 초과하기 전에 Python이 먼저 `RecursionError`를 던진다.
+
+`sys.setrecursionlimit(100000)`으로 올리면? Python의 안전장치는 풀렸지만, OS가 부여한 Stack 크기는 그대로다. 재귀가 충분히 깊어지면 OS Stack 크기를 초과해서 Segmentation Fault가 발생한다. RecursionError는 예외니까 try/except로 잡을 수 있지만, Segfault는 잡을 수 없다. 프로세스가 그냥 죽는다.
+
+이게 "Stack Overflow"라는 이름의 유래다. Stack 영역이 넘치는(overflow) 거다. (그래서 개발자 Q&A 사이트 이름도 Stack Overflow다.)
+
+사례 B는 해결됐다. 그런데 한 가지 의문이 남는다. "각 프로세스가 독립적인 주소 공간을 가진다"고 했는데, 8GB RAM인 컴퓨터에서 프로세스 16개가 각각 60MB씩 쓰면 960MB다. 프로세스가 100개면? 물리 메모리가 모자라면 어떻게 되는 건가?
 
 
 ## Virtual Memory - 물리 메모리보다 넓은 세계
@@ -221,6 +253,7 @@ graph TB
     ML --> HEAP["Heap"]
     ML --> DATA["Data"]
     ML --> TEXT["Text"]
+    STACK --> SF["Stack Frame"]
     STACK -->|"넘치면"| SO["Stack Overflow"]
     HEAP -->|"끝없이 자라면"| OOM["OOM"]
     PM -->|"꽉 차면"| OOM
@@ -237,4 +270,4 @@ Stack이 넘치면 Stack Overflow, Heap이 끝없이 자라면 OOM. 프로세스
 
 ---
 
-[< Memory Layout](./02-memory-layout.md) | [유사 사례와 키워드 정리 >](./04-summary.md)
+[< 사례 B: 재귀 API가 죽는다](./03-case-stack.md) | [유사 사례와 키워드 정리 >](./05-summary.md)
