@@ -16,7 +16,7 @@ AI 도구(Claude Code, Cursor 등)를 활용하는 시대에 왜 CS를 알아야
 | Ch.1 | [왜 CS를 공부해야 하는가](ch01/README.md) | CS를 모르면 키워드를 모르고, 키워드를 모르면 검색도 AI 활용도 못 한다 |
 | Ch.2 | [로그를 뺐더니 빨라졌어요? (1)](ch02/README.md) | print문이 왜 느린지 - System Call과 커널 |
 | Ch.3 | [로그를 뺐더니 빨라졌어요? (2)](ch03/README.md) | CPU Bound와 I/O Bound, async의 오해 |
-| Ch.4 | 프로세스와 스레드 | Memory Layout, Virtual Memory, OOM |
+| Ch.4 | [프로세스와 스레드, 진짜로 이해하고 있는가](ch04/README.md) | Memory Layout, Virtual Memory, OOM |
 | Ch.5 | 동시성 제어의 기초 | Race Condition, Mutex, Deadlock |
 | Ch.6 | 네트워크 기초 | TCP/IP, Connection Pool, TIME_WAIT |
 
