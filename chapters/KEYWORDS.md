@@ -593,3 +593,81 @@ graph LR
     PART["Partitioning"] --> SHARD["Sharding"]
     RR["Read Replica"] -->|"읽기 분산"| CP
 ```
+
+---
+
+## Ch.17 - 느리니까 Redis 붙이고 생각해볼까요?
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Cache (캐시) | 새 키워드 | 자주 쓰는 데이터를 빠른 저장소에 미리 보관하는 기법 |
+| Cache Hit / Miss | 새 키워드 | 캐시에 데이터가 있으면 Hit, 없으면 Miss |
+| Cache Stampede | 재등장 (Ch.9) | 캐시 만료 시 대량 요청이 동시에 원본 저장소를 조회하는 현상 |
+| TTL (Time-To-Live) | 새 키워드 | 캐시 데이터의 유효 기간 |
+| Eviction Policy | 새 키워드 | 캐시가 가득 찼을 때 어떤 데이터를 제거할지 결정하는 정책 (LRU, LFU 등) |
+| Write-Through / Write-Back / Cache-Aside | 새 키워드 | 캐시 쓰기 전략의 세 가지 패턴 |
+| Redis | 새 키워드 | 인메모리 키-값 저장소, 캐시/세션/메시지 브로커로 활용 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    CACHE["Cache"] --> HM["Hit / Miss"]
+    CACHE --> TTL
+    CACHE --> EP["Eviction Policy"]
+    CACHE --> WS["Write Strategy"]
+    WS --> WT["Write-Through"]
+    WS --> WB["Write-Back"]
+    WS --> CA["Cache-Aside"]
+    TTL -->|"만료 시"| CS["Cache Stampede<br/>(Ch.9)"]
+    CACHE --> REDIS["Redis"]
+```
+
+---
+
+## Ch.18 - Local Cache vs Remote Cache
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Local Cache | 새 키워드 | 애플리케이션 프로세스 메모리에 저장하는 캐시 (가장 빠르지만 서버별 불일치 위험) |
+| Remote Cache | 새 키워드 | 별도 캐시 서버(Redis, Memcached)에 저장하는 캐시 (일관성 있지만 네트워크 지연) |
+| Cache Invalidation | 새 키워드 | 원본 데이터 변경 시 캐시를 무효화하는 전략 |
+| CDN (Content Delivery Network) | 새 키워드 | 정적 콘텐츠를 지리적으로 분산된 서버에 캐시하는 네트워크 |
+| Cache | 재등장 (Ch.17) | Local/Remote 계층 구조로 확장 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    LC["Local Cache"] --> CACHE["Cache<br/>(Ch.17)"]
+    RC["Remote Cache"] --> CACHE
+    CDN --> CACHE
+    LC -->|"빠르지만<br/>불일치"| CI["Cache Invalidation"]
+    RC -->|"일관적이지만<br/>네트워크 지연"| CI
+    LC -.->|"CPU Cache 비유"| ARCH["Computer<br/>Architecture"]
+```
+
+---
+
+## Ch.19 - Replica를 200개로 늘려볼까요?
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Bottleneck (병목) | 새 키워드 | 시스템 전체 성능을 제한하는 가장 느린 구간 |
+| Amdahl's Law (암달의 법칙) | 새 키워드 | 병렬화로 개선 가능한 성능 상한을 계산하는 법칙 |
+| Scale-Up / Scale-Out | 새 키워드 | 서버 성능 향상(Up) vs 서버 수 증가(Out) |
+| Throughput / Latency | 재등장 (Ch.2) | 성능 측정의 두 축, Bottleneck 식별의 기본 지표 |
+| Connection Pool | 재등장 (Ch.6) | DB가 Bottleneck일 때 Pool 크기가 제한 요인 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    BN["Bottleneck"] --> AL["Amdahl's Law"]
+    BN --> CPU["CPU Bound<br/>(Ch.3)"]
+    BN --> IO["I/O Bound<br/>(Ch.3)"]
+    BN --> DB["DB<br/>(Ch.16)"]
+    AL -->|"한계"| SO["Scale-Out"]
+    SO --> SU["Scale-Up"]
+    BN -->|"측정"| TL["Throughput / Latency<br/>(Ch.2)"]
+```

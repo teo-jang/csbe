@@ -139,3 +139,18 @@ nav:
       - 사례 - Slow Query가 서버를 죽였다: ch16/01-case.md
       - 쿼리 최적화: ch16/02-query-optimization.md
       - 유사 사례와 키워드 정리: ch16/03-summary.md
+  - Ch.17 느리니까 Redis 붙이고 생각해볼까요?:
+      - 환경 세팅: ch17/README.md
+      - 사례 - Cache를 붙였더니 장애가 났다: ch17/01-case.md
+      - Cache 전략과 설계: ch17/02-cache-strategy.md
+      - 유사 사례와 키워드 정리: ch17/03-summary.md
+  - Ch.18 Local Cache vs Remote Cache:
+      - 환경 세팅: ch18/README.md
+      - 사례 - 매번 Redis에서 가져온다고?: ch18/01-case.md
+      - 계층 캐시 설계: ch18/02-layered-cache.md
+      - 유사 사례와 키워드 정리: ch18/03-summary.md
+  - Ch.19 Replica를 200개로 늘려볼까요?:
+      - 환경 세팅: ch19/README.md
+      - 사례 - Scale-Out 했는데 왜 안 빨라지죠?: ch19/01-case.md
+      - Bottleneck과 Amdahl의 법칙: ch19/02-bottleneck-amdahl.md
+      - 유사 사례와 키워드 정리: ch19/03-summary.md
