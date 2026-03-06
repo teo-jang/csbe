@@ -96,3 +96,9 @@ nav:
       - OS와 네트워크 키워드: ch08/02-os-network-keywords.md
       - DB와 자료구조 키워드: ch08/03-db-ds-keywords.md
       - 유사 사례와 키워드 정리: ch08/04-summary.md
+  - Ch.9 AI 코드 리뷰:
+      - 이 챕터에 대해: ch09/README.md
+      - 사례 - AI가 만든 코드의 함정: ch09/01-case.md
+      - AI가 자주 틀리는 6가지 패턴: ch09/02-common-mistakes.md
+      - CS 관점 코드 리뷰 체크리스트: ch09/03-review-checklist.md
+      - 유사 사례와 키워드 정리: ch09/04-summary.md
