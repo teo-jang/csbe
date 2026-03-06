@@ -1,0 +1,6089 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Backend Engineer를 위한 CS 강의 자료">
+      
+      
+        <meta name="author" content="Teo Jang">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-ai-strategy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>전체 키워드 총정리 - CSBE - Computer Science for Backend Engineer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ch24" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="CSBE - Computer Science for Backend Engineer" class="md-header__button md-logo" aria-label="CSBE - Computer Science for Backend Engineer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSBE - Computer Science for Backend Engineer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              전체 키워드 총정리
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSBE - Computer Science for Backend Engineer" class="md-nav__button md-logo" aria-label="CSBE - Computer Science for Backend Engineer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CSBE - Computer Science for Backend Engineer
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../KEYWORDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    키워드 목록
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.1 왜 CS를 공부해야 하는가
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.1 왜 CS를 공부해야 하는가
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 강의에 대해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01/01-why-cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JD와 이해, 그리고 경험
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01/02-cs-and-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS를 외워온다, 그리고 코딩과 CS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01/03-how-to-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    어떻게 공부할 것인가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    커리큘럼과 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.2 System Call과 커널
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.2 System Call과 커널
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례와 코드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02/02-print-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    print()는 어디로 가는가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02/03-syscall-cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Call이 왜 비싼가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.3 CPU Bound와 I/O Bound
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.3 CPU Bound와 I/O Bound
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례와 코드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/02-cpu-io-bound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Bound vs I/O Bound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/03-concurrency-gil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GIL과 동시성 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.4 프로세스와 스레드
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.4 프로세스와 스레드
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/01-case-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 A - ProcessPool OOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/02-memory-layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Layout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/03-case-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 B - 카테고리 경로 조회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/04-virtual-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stack Frame과 Virtual Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/05-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.5 동시성 제어의 기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.5 동시성 제어의 기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/01-case-race-condition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 A - 재고가 마이너스가 됐다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/02-critical-section/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Critical Section과 Lock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/03-case-deadlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 B - Lock을 걸었더니 먹통
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/04-deadlock-conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deadlock의 조건과 Semaphore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/05-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.6 네트워크 기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.6 네트워크 기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/01-case-connection-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 서버는 살아있는데 요청이 실패한다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/02-tcp-socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TCP/IP와 Socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/03-connection-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connection Pool과 Keep-Alive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.7 AI와 CS 키워드
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.7 AI와 CS 키워드
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 챕터에 대해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 같은 문제, 다른 프롬프트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/02-how-ai-coding-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 코딩 도구의 작동 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/03-do-dont-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS 키워드로 AI를 제어하는 법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.8 CS 키워드 사전
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.8 CS 키워드 사전
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 챕터에 대해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 같은 문제, 다른 카테고리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/02-os-network-keywords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS와 네트워크 키워드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/03-db-ds-keywords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB와 자료구조 키워드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.9 AI 코드 리뷰
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.9 AI 코드 리뷰
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 챕터에 대해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - AI가 만든 코드의 함정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/02-common-mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI가 자주 틀리는 6가지 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/03-review-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS 관점 코드 리뷰 체크리스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.10 contains()를 쓰지 마세요
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.10 contains()를 쓰지 마세요
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - contains()가 API를 멈추게 한 날
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/02-hash-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hash Table과 시간 복잡도
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/03-choosing-ds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자료구조 선택의 기준
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.11 정렬과 검색, 인덱스
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.11 정렬과 검색, 인덱스
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch11/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 매 요청마다 정렬하는 API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch11/02-binary-search-btree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Search와 B-Tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch11/03-index-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱스의 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch11/04-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.12 트리, 그래프, 실무
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.12 트리, 그래프, 실무
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch12/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 카테고리 트리를 매번 재귀로 조회한다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch12/02-bfs-dfs-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BFS, DFS, 그리고 DAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch12/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.13 JPA를 써서 DB를 모른다고요?
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.13 JPA를 써서 DB를 모른다고요?
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch13/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - N+1 Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch13/02-orm-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ORM과 SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch13/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.14 인덱스를 안 걸어놓고 Redis를 설치했습니다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.14 인덱스를 안 걸어놓고 Redis를 설치했습니다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 인덱스 없이 Redis 도입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14/02-index-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱스 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.15 Transaction과 Isolation Level
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.15 Transaction과 Isolation Level
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch15/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 재고가 마이너스가 됐다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch15/02-isolation-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isolation Level
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch15/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.16 DB 성능 튜닝의 실무
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.16 DB 성능 튜닝의 실무
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch16/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - Slow Query가 서버를 죽였다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch16/02-query-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리 최적화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch16/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.17 느리니까 Redis 붙이고 생각해볼까요?
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.17 느리니까 Redis 붙이고 생각해볼까요?
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch17/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - Cache를 붙였더니 장애가 났다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch17/02-cache-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache 전략과 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch17/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.18 Local Cache vs Remote Cache
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.18 Local Cache vs Remote Cache
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch18/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 매번 Redis에서 가져온다고?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch18/02-layered-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    계층 캐시 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch18/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.19 Replica를 200개로 늘려볼까요?
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.19 Replica를 200개로 늘려볼까요?
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch19/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - Scale-Out 했는데 왜 안 빨라지죠?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch19/02-bottleneck-amdahl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bottleneck과 Amdahl의 법칙
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch19/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.20 관심사의 분리
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.20 관심사의 분리
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch20/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 3000줄짜리 God Class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch20/02-solid-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOLID와 Clean Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch20/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.21 테스트를 짜라고 했더니 전부 Mocking입니다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.21 테스트를 짜라고 했더니 전부 Mocking입니다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch21/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - Mock으로만 통과한 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch21/02-test-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 전략과 경계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch21/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.22 분산 시스템의 기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.22 분산 시스템의 기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch22/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - 내 컴퓨터에서는 되는데요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch22/02-container-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container와 Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch22/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_25" id="__nav_25_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.23 보안은 남의 일이 아니다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_25">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.23 보안은 남의 일이 아니다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 세팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch23/01-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사례 - XSS 한 줄로 서비스가 털렸다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch23/02-web-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    웹 보안의 핵심
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch23/03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    유사 사례와 키워드 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch.24 종합
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_26">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch.24 종합
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 챕터에 대해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 키워드 총정리
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 키워드 총정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        하나의 요청이 거치는 길
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="하나의 요청이 거치는 길">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dns-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계: 클라이언트 -&gt; DNS -&gt; CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-load-balancer-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계: Load Balancer -&gt; Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-httpstls-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계: HTTPS/TLS -&gt; 인증
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-fastapi-service-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4단계: FastAPI -&gt; 라우터 -&gt; Service Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5단계: Cache 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-db-connection-pool-transaction-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6단계: DB - Connection Pool -&gt; Transaction -&gt; Query
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7단계: 응답
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        요청 흐름 전체 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part별 키워드 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part별 키워드 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-ch16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: 기초 체력 (Ch.1~6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-ai-cs-ch79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: AI와 CS의 접점 (Ch.7~9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-ch1012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: 자료구조와 알고리즘의 실무 (Ch.10~12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-ch1316" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: 데이터베이스 깊게 보기 (Ch.13~16)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-ch1719" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: 캐시와 성능 최적화 (Ch.17~19)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-6-ch2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: 소프트웨어 설계와 아키텍처 (Ch.20~22)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-7-ch2324" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7: 보안과 마무리 (Ch.23~24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 키워드 연관 관계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch1-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ch.1의 Computational Thinking 트리, 완성
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ai-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 활용 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    마무리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        하나의 요청이 거치는 길
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="하나의 요청이 거치는 길">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dns-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계: 클라이언트 -&gt; DNS -&gt; CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-load-balancer-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계: Load Balancer -&gt; Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-httpstls-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계: HTTPS/TLS -&gt; 인증
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-fastapi-service-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4단계: FastAPI -&gt; 라우터 -&gt; Service Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5단계: Cache 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-db-connection-pool-transaction-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6단계: DB - Connection Pool -&gt; Transaction -&gt; Query
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7단계: 응답
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        요청 흐름 전체 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part별 키워드 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part별 키워드 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-ch16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: 기초 체력 (Ch.1~6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-ai-cs-ch79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: AI와 CS의 접점 (Ch.7~9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-ch1012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: 자료구조와 알고리즘의 실무 (Ch.10~12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-ch1316" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: 데이터베이스 깊게 보기 (Ch.13~16)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-ch1719" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: 캐시와 성능 최적화 (Ch.17~19)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-6-ch2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: 소프트웨어 설계와 아키텍처 (Ch.20~22)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-7-ch2324" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7: 보안과 마무리 (Ch.23~24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 키워드 연관 관계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch1-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ch.1의 Computational Thinking 트리, 완성
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ch24">Ch.24 전체 키워드 총정리<a class="headerlink" href="#ch24" title="Permanent link">&para;</a></h1>
+<p><a href="../">&lt; 이 챕터에 대해</a></p>
+<hr />
+<p>앞에서 이 챕터의 목적을 이야기했다. 개별 키워드를 외우는 게 아니라, 전체 그림에서 연결하는 거다. 이번에는 하나의 가상 서비스를 기준으로, 요청이 들어와서 응답이 나가기까지 거치는 모든 레이어를 따라간다.</p>
+<h2 id="_1">하나의 요청이 거치는 길<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이커머스 주문 API를 가정하자. 사용자가 "주문하기" 버튼을 누르면 어떤 일이 벌어지는가?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POST /api/orders
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;product_id&quot;: 12345,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    &quot;quantity&quot;: 2
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
+</code></pre></div>
+<p>이 요청 하나가 응답으로 돌아오기까지 거치는 레이어를 순서대로 따라간다. 각 레이어에서 어떤 CS 키워드가 작동하는지, 어떤 챕터에서 다뤘는지를 매핑한다.</p>
+<h3 id="1-dns-cdn">1단계: 클라이언트 -&gt; DNS -&gt; CDN<a class="headerlink" href="#1-dns-cdn" title="Permanent link">&para;</a></h3>
+<p>사용자가 <code>api.shop.com</code>에 요청을 보낸다. 브라우저(또는 앱)는 먼저 이 도메인의 IP 주소를 알아내야 한다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNS Resolution</td>
+<td>Ch.8</td>
+<td>도메인을 IP 주소로 변환</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>Ch.18</td>
+<td>정적 리소스를 가까운 서버에서 제공, 원본 서버 부하 감소</td>
+</tr>
+<tr>
+<td>Cache (DNS Cache)</td>
+<td>Ch.17</td>
+<td>DNS 결과를 캐시해서 매번 조회하지 않음</td>
+</tr>
+</tbody>
+</table>
+<p>주문 API는 동적 요청이니까 CDN을 거치지 않고 원본 서버로 간다. 하지만 상품 이미지, JS/CSS 같은 정적 리소스는 CDN에서 처리된다. Ch.18에서 Local Cache와 Remote Cache를 다루면서 CDN도 캐시의 한 형태라는 걸 봤다.</p>
+<h3 id="2-load-balancer-container">2단계: Load Balancer -&gt; Container<a class="headerlink" href="#2-load-balancer-container" title="Permanent link">&para;</a></h3>
+<p>요청이 서버에 도착하기 전에 Load Balancer를 거친다. 서버가 여러 대면 어디로 보낼지 결정해야 한다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load Balancing</td>
+<td>Ch.8</td>
+<td>여러 서버 인스턴스에 트래픽 분산</td>
+</tr>
+<tr>
+<td>Scale-Out / Scale-Up</td>
+<td>Ch.19</td>
+<td>서버를 늘릴 건지, 성능을 올릴 건지</td>
+</tr>
+<tr>
+<td>Container (Docker)</td>
+<td>Ch.22</td>
+<td>서버 인스턴스가 컨테이너로 실행</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Ch.22</td>
+<td>컨테이너 오케스트레이션, 자동 스케일링</td>
+</tr>
+<tr>
+<td>namespace / cgroup</td>
+<td>Ch.22</td>
+<td>컨테이너의 프로세스 격리와 자원 제한</td>
+</tr>
+<tr>
+<td>Service Discovery</td>
+<td>Ch.22</td>
+<td>동적으로 서버 위치를 찾는 메커니즘</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.19에서 "Replica를 200개로 늘려봐도 Bottleneck이 다른 데 있으면 소용없다"는 걸 봤다. Scale-Out은 Bottleneck을 찾은 뒤에 하는 거다. Amdahl's Law가 그 상한을 보여준다.</p>
+<h3 id="3-httpstls-">3단계: HTTPS/TLS -&gt; 인증<a class="headerlink" href="#3-httpstls-" title="Permanent link">&para;</a></h3>
+<p>요청이 서버 인스턴스에 도착했다. TCP Connection이 수립되고, TLS 위에서 HTTP 통신이 시작된다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP/IP</td>
+<td>Ch.6</td>
+<td>통신 기반, 신뢰성 보장</td>
+</tr>
+<tr>
+<td>3-Way Handshake</td>
+<td>Ch.6</td>
+<td>TCP Connection 수립</td>
+</tr>
+<tr>
+<td>HTTPS / TLS</td>
+<td>Ch.23</td>
+<td>통신 암호화, 도청/변조 방지</td>
+</tr>
+<tr>
+<td>Keep-Alive</td>
+<td>Ch.6</td>
+<td>TCP Connection 재활용</td>
+</tr>
+<tr>
+<td>JWT / Session</td>
+<td>Ch.23</td>
+<td>사용자 인증, "이 요청이 누구의 것인가"</td>
+</tr>
+<tr>
+<td>CORS</td>
+<td>Ch.23</td>
+<td>다른 도메인에서의 API 호출 제어</td>
+</tr>
+<tr>
+<td>CSRF</td>
+<td>Ch.23</td>
+<td>위조된 요청 방어</td>
+</tr>
+</tbody>
+</table>
+<p>주문 API는 인증이 필수다. JWT 토큰을 검증하든, Session을 확인하든, "이 요청을 보낸 사람이 누구인가"를 먼저 확인해야 한다. Ch.23에서 보안은 "나중에 하면 되는 것"이 아니라 "처음부터 설계에 녹여야 하는 것"이라고 했다.</p>
+<h3 id="4-fastapi-service-layer">4단계: FastAPI -&gt; 라우터 -&gt; Service Layer<a class="headerlink" href="#4-fastapi-service-layer" title="Permanent link">&para;</a></h3>
+<p>인증을 통과한 요청이 애플리케이션 코드에 도착한다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System Call</td>
+<td>Ch.2</td>
+<td>네트워크 소켓 읽기, 로그 출력, 모든 I/O의 기반</td>
+</tr>
+<tr>
+<td>Process / Thread</td>
+<td>Ch.4</td>
+<td>FastAPI Worker, 요청 처리 단위</td>
+</tr>
+<tr>
+<td>Thread Pool</td>
+<td>Ch.3</td>
+<td>FastAPI의 동기 엔드포인트가 실행되는 곳</td>
+</tr>
+<tr>
+<td>Event Loop</td>
+<td>Ch.3</td>
+<td>FastAPI의 비동기 엔드포인트가 실행되는 곳</td>
+</tr>
+<tr>
+<td>GIL</td>
+<td>Ch.3</td>
+<td>CPython에서 동시 실행 제약</td>
+</tr>
+<tr>
+<td>Memory Layout</td>
+<td>Ch.4</td>
+<td>Stack Frame, Heap 할당</td>
+</tr>
+<tr>
+<td>SOLID / SRP</td>
+<td>Ch.20</td>
+<td>Service Layer의 책임 분리</td>
+</tr>
+<tr>
+<td>DI / IoC</td>
+<td>Ch.20</td>
+<td>의존성 주입, 테스트 용이성</td>
+</tr>
+<tr>
+<td>Layered Architecture</td>
+<td>Ch.20</td>
+<td>Presentation -&gt; Business -&gt; Data 계층 구조</td>
+</tr>
+<tr>
+<td>YAGNI</td>
+<td>Ch.9</td>
+<td>불필요한 추상화 배제</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.2에서 <code>print()</code> 하나가 System Call을 거치면서 Mode Switch 비용이 든다는 걸 봤다. 운영 서버에서 로그를 쏟아내면 그 비용이 쌓인다. Ch.3에서는 이미지 리사이즈 같은 CPU Bound 작업을 async로 처리하면 오히려 느려진다는 걸 봤다. 요청이 코드에 도착했을 때 "이 작업이 CPU Bound인가 I/O Bound인가"를 아는 것이 올바른 처리 전략의 출발점이다.</p>
+<p>Ch.20에서 본 SOLID 원칙은 여기서 작동한다. 주문 Service가 재고 확인, 결제 처리, 알림 발송까지 전부 하는 3000줄짜리 God Class라면? 장애 하나가 전체를 먹통으로 만든다.</p>
+<h3 id="5-cache">5단계: Cache 확인<a class="headerlink" href="#5-cache" title="Permanent link">&para;</a></h3>
+<p>DB에 가기 전에 캐시를 먼저 확인한다. 상품 정보는 자주 바뀌지 않으니 캐시에 있을 가능성이 높다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache / Cache Hit / Miss</td>
+<td>Ch.17</td>
+<td>캐시에 데이터가 있으면 DB를 안 거침</td>
+</tr>
+<tr>
+<td>Local Cache</td>
+<td>Ch.18</td>
+<td>애플리케이션 메모리의 캐시, 가장 빠르지만 서버별 불일치 위험</td>
+</tr>
+<tr>
+<td>Remote Cache (Redis)</td>
+<td>Ch.18</td>
+<td>별도 캐시 서버, 일관성 있지만 네트워크 지연</td>
+</tr>
+<tr>
+<td>TTL</td>
+<td>Ch.17</td>
+<td>캐시 데이터의 유효 기간</td>
+</tr>
+<tr>
+<td>Cache Stampede</td>
+<td>Ch.9, Ch.17</td>
+<td>캐시 만료 순간 대량의 DB 요청 발생</td>
+</tr>
+<tr>
+<td>Eviction Policy</td>
+<td>Ch.17</td>
+<td>캐시가 가득 찼을 때 제거 정책 (LRU, LFU)</td>
+</tr>
+<tr>
+<td>Write-Through / Cache-Aside</td>
+<td>Ch.17</td>
+<td>캐시 쓰기 전략</td>
+</tr>
+<tr>
+<td>Cache Invalidation</td>
+<td>Ch.18</td>
+<td>원본 데이터 변경 시 캐시 무효화</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.17에서 "느리니까 Redis 붙이자"가 왜 위험한지 봤다. Cache Stampede가 TTL 만료 순간에 DB를 죽일 수 있다. Ch.18에서는 Local Cache -&gt; Remote Cache -&gt; DB 순서로 계층을 구성하면 각 레이어의 장단점을 보완할 수 있다는 걸 봤다.</p>
+<p>주문에서는 상품 정보(이름, 가격)를 캐시에서 가져오지만, 재고 수량은 캐시에서 가져오면 안 된다. 재고는 동시성 문제가 있으니 DB에서 직접 확인해야 한다. 캐시를 "어디에 쓰고 어디에 쓰지 않는가"를 결정하는 것도 CS 역량이다.</p>
+<h3 id="6-db-connection-pool-transaction-query">6단계: DB - Connection Pool -&gt; Transaction -&gt; Query<a class="headerlink" href="#6-db-connection-pool-transaction-query" title="Permanent link">&para;</a></h3>
+<p>캐시에 없는 데이터, 또는 쓰기 작업은 DB로 간다.</p>
+<table>
+<thead>
+<tr>
+<th>키워드</th>
+<th>챕터</th>
+<th>이 레이어에서의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection Pool</td>
+<td>Ch.6</td>
+<td>DB Connection 재활용, 3-Way Handshake 비용 절감</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>Ch.13</td>
+<td>객체와 테이블 매핑</td>
+</tr>
+<tr>
+<td>N+1 Problem</td>
+<td>Ch.13</td>
+<td>ORM의 Lazy Loading이 만드는 쿼리 폭발</td>
+</tr>
+<tr>
+<td>Lazy / Eager Loading</td>
+<td>Ch.13</td>
+<td>연관 데이터 로딩 전략</td>
+</tr>
+<tr>
+<td>Transaction</td>
+<td>Ch.15</td>
+<td>주문 = 재고 차감 + 주문 생성 + 결제 기록, 전부 성공하거나 전부 실패</td>
+</tr>
+<tr>
+<td>ACID</td>
+<td>Ch.15</td>
+<td>Transaction의 4가지 보장</td>
+</tr>
+<tr>
+<td>Isolation Level</td>
+<td>Ch.15</td>
+<td>동시 트랜잭션 간 간섭 정도</td>
+</tr>
+<tr>
+<td>Pessimistic / Optimistic Lock</td>
+<td>Ch.15</td>
+<td>동시 주문에서 재고 정합성 보장</td>
+</tr>
+<tr>
+<td>Index (B-Tree)</td>
+<td>Ch.11, Ch.14</td>
+<td>상품 조회, 주문 이력 검색 성능</td>
+</tr>
+<tr>
+<td>Covering Index</td>
+<td>Ch.14</td>
+<td>테이블 접근 없이 인덱스만으로 쿼리 처리</td>
+</tr>
+<tr>
+<td>Composite Index</td>
+<td>Ch.14</td>
+<td>여러 컬럼 조합 인덱스</td>
+</tr>
+<tr>
+<td>EXPLAIN</td>
+<td>Ch.11</td>
+<td>쿼리 실행 계획 확인</td>
+</tr>
+<tr>
+<td>QEP / CBO</td>
+<td>Ch.13</td>
+<td>옵티마이저의 실행 계획 결정</td>
+</tr>
+<tr>
+<td>Slow Query</td>
+<td>Ch.16</td>
+<td>실행 시간이 긴 쿼리, Connection Pool 고갈의 원인</td>
+</tr>
+<tr>
+<td>Full Table Scan</td>
+<td>Ch.11</td>
+<td>인덱스 없이 전체 행을 순회</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>Ch.16</td>
+<td>대량 데이터를 페이지 단위로 나눠 조회</td>
+</tr>
+<tr>
+<td>Partitioning / Sharding</td>
+<td>Ch.16</td>
+<td>테이블 분할, 데이터 분산</td>
+</tr>
+</tbody>
+</table>
+<p>여기가 제일 복잡한 레이어다. 하나의 주문 요청 안에서 재고 확인(SELECT) -&gt; 재고 차감(UPDATE) -&gt; 주문 생성(INSERT) -&gt; 결제 기록(INSERT)이 하나의 Transaction으로 묶여야 한다. Ch.15에서 ACID와 Isolation Level을 다뤘다. 이 중 하나라도 실패하면 전부 롤백해야 한다. "재고는 차감됐는데 주문은 안 만들어진" 상태가 되면 안 된다.</p>
+<p>Ch.5에서 다뤘던 Race Condition이 여기서 다시 나타난다. 재고가 1개 남았는데 동시에 2명이 주문하면? Ch.15에서 본 Pessimistic Lock(<code>SELECT ... FOR UPDATE</code>)이나 Optimistic Lock(version 컬럼)으로 해결한다.</p>
+<p>Ch.6에서 다뤘던 Connection Pool 고갈도 여기서 발생한다. Slow Query 하나가 Connection을 10초간 점유하면, 다른 요청들이 빈 Connection을 기다리다가 timeout이 난다. Ch.16에서 본 것처럼, 원인은 Pool 크기가 아니라 Slow Query다.</p>
+<h3 id="7">7단계: 응답<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>처리가 끝나면 응답이 역순으로 돌아간다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DB -&gt; Service -&gt; Router -&gt; FastAPI -&gt; TLS -&gt; TCP -&gt; Load Balancer -&gt; 클라이언트
+</code></pre></div>
+<p>각 레이어에서 반환이 일어나면서 Connection이 Pool로 돌아가고, Stack Frame이 해제되고, TCP 패킷이 클라이언트로 전달된다.</p>
+<h2 id="_2">요청 흐름 전체 그림<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>위의 7단계를 하나의 그림으로 보면 이렇다.</p>
+<pre class="mermaid"><code>graph TB
+    CLIENT["클라이언트"] --&gt;|"DNS Resolution"| DNS["DNS"]
+    DNS --&gt;|"IP 주소"| LB["Load Balancer&lt;br/&gt;(Ch.8, Ch.19)"]
+    LB --&gt;|"라우팅"| CONT["Container&lt;br/&gt;Docker / K8s&lt;br/&gt;(Ch.22)"]
+
+    subgraph SERVER ["서버 인스턴스"]
+        CONT --&gt;|"TLS"| TLS["HTTPS / TLS&lt;br/&gt;(Ch.23)"]
+        TLS --&gt;|"인증"| AUTH["JWT / Session&lt;br/&gt;(Ch.23)"]
+        AUTH --&gt; APP["FastAPI&lt;br/&gt;Router&lt;br/&gt;(Ch.2, Ch.3)"]
+        APP --&gt; SVC["Service Layer&lt;br/&gt;SOLID&lt;br/&gt;(Ch.20)"]
+
+        SVC --&gt;|"캐시 확인"| CACHE["Cache Layer&lt;br/&gt;Local / Redis&lt;br/&gt;(Ch.17, Ch.18)"]
+        CACHE --&gt;|"Cache Miss"| DB_LAYER["DB Layer"]
+
+        subgraph DB_LAYER ["DB Layer"]
+            CP["Connection Pool&lt;br/&gt;(Ch.6)"]
+            TX["Transaction&lt;br/&gt;ACID&lt;br/&gt;(Ch.15)"]
+            IDX["Index / Query&lt;br/&gt;(Ch.11, Ch.14)"]
+            CP --&gt; TX --&gt; IDX
+        end
+    end
+
+    IDX --&gt;|"응답"| CLIENT</code></pre>
+<h2 id="part">Part별 키워드 정리<a class="headerlink" href="#part" title="Permanent link">&para;</a></h2>
+<p>이제 챕터별이 아니라, Part별로 키워드를 묶어서 전체 그림을 본다. 각 Part가 이 서비스의 어디에 해당하는지를 연결하는 거다.</p>
+<h3 id="part-1-ch16">Part 1: 기초 체력 (Ch.1~6)<a class="headerlink" href="#part-1-ch16" title="Permanent link">&para;</a></h3>
+<p>서비스의 "바닥"에 해당한다. 어떤 레이어에서든 이 키워드들이 등장한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.1</td>
+<td>Computational Thinking, Keyword</td>
+<td>모든 레이어 - 문제 분해의 출발점</td>
+</tr>
+<tr>
+<td>Ch.2</td>
+<td>System Call, File Descriptor, Mode Switch</td>
+<td>모든 I/O - 로그, 네트워크, DB 전부</td>
+</tr>
+<tr>
+<td>Ch.3</td>
+<td>CPU Bound, I/O Bound, GIL, Event Loop</td>
+<td>Application Layer - 요청 처리 전략</td>
+</tr>
+<tr>
+<td>Ch.4</td>
+<td>Process, Thread, Memory Layout, Virtual Memory</td>
+<td>서버 프로세스, OOM 진단</td>
+</tr>
+<tr>
+<td>Ch.5</td>
+<td>Race Condition, Mutex, Deadlock, Semaphore</td>
+<td>동시 요청 처리, 재고 차감</td>
+</tr>
+<tr>
+<td>Ch.6</td>
+<td>TCP/IP, Socket, Connection Pool, Keep-Alive</td>
+<td>서버-DB, 서버-Redis, 서버-외부 API 전부</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.1에서 "키워드를 모르면 검색도 못 한다"고 했다. Ch.2~6에서 쌓은 키워드는 이후 모든 파트의 토대다. Connection Pool(Ch.6)은 DB, Redis, HTTP Client 어디에서든 재등장한다. Race Condition(Ch.5)은 재고 차감(Ch.15), 캐시 갱신(Ch.17) 어디에서든 재등장한다.</p>
+<h3 id="part-2-ai-cs-ch79">Part 2: AI와 CS의 접점 (Ch.7~9)<a class="headerlink" href="#part-2-ai-cs-ch79" title="Permanent link">&para;</a></h3>
+<p>서비스의 특정 레이어가 아니라, 모든 레이어를 다루는 "도구"에 해당한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.7</td>
+<td>LLM, Prompt Engineering, Hallucination</td>
+<td>전 레이어 - AI로 문제를 풀 때의 방법론</td>
+</tr>
+<tr>
+<td>Ch.8</td>
+<td>DNS Resolution, Load Balancing, N+1, Time Complexity</td>
+<td>전 레이어 - 카테고리별 키워드 사전</td>
+</tr>
+<tr>
+<td>Ch.9</td>
+<td>Code Review, YAGNI, Cache Stampede</td>
+<td>전 레이어 - AI가 만든 코드 검증</td>
+</tr>
+</tbody>
+</table>
+<p>Part 2는 다른 파트와 성격이 다르다. 특정 레이어의 키워드가 아니라 "어떤 레이어의 문제든 AI에게 정확하게 지시하려면 키워드를 알아야 한다"는 방법론이다. Ch.7에서 본 "키워드 없는 프롬프트 vs 키워드 있는 프롬프트"의 차이가 24챕터 전체에 걸쳐 적용된다. 다음 파일에서 이걸 종합한다.</p>
+<h3 id="part-3-ch1012">Part 3: 자료구조와 알고리즘의 실무 (Ch.10~12)<a class="headerlink" href="#part-3-ch1012" title="Permanent link">&para;</a></h3>
+<p>DB 인덱스, 캐시 구현, 의존성 관리의 "근거"에 해당한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.10</td>
+<td>Hash Table, Time Complexity, Space Complexity</td>
+<td>캐시 내부 구현, Set/Dict 선택 기준</td>
+</tr>
+<tr>
+<td>Ch.11</td>
+<td>Binary Search, B-Tree, Index, EXPLAIN</td>
+<td>DB 인덱스의 원리</td>
+</tr>
+<tr>
+<td>Ch.12</td>
+<td>BFS, DFS, DAG, Topological Sort</td>
+<td>카테고리 트리 조회, 작업 의존성 관리</td>
+</tr>
+</tbody>
+</table>
+<p>"왜 Index를 걸면 빨라지는가?"에 대한 답이 Ch.10~12에 있다. Hash Table이 O(1) 검색을 가능하게 하고, B-Tree가 범위 검색과 정렬까지 지원한다. contains()를 List에서 쓰면 O(n), Set에서 쓰면 O(1) - Ch.10에서 봤던 4,000배 차이가 실무에서 그대로 나타난다.</p>
+<h3 id="part-4-ch1316">Part 4: 데이터베이스 깊게 보기 (Ch.13~16)<a class="headerlink" href="#part-4-ch1316" title="Permanent link">&para;</a></h3>
+<p>6단계(DB Layer)의 모든 키워드가 여기에 있다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.13</td>
+<td>ORM, N+1, Lazy/Eager Loading, QEP, CBO</td>
+<td>주문/상품 조회 쿼리</td>
+</tr>
+<tr>
+<td>Ch.14</td>
+<td>Covering Index, Composite Index, Cardinality</td>
+<td>검색 성능 최적화</td>
+</tr>
+<tr>
+<td>Ch.15</td>
+<td>ACID, Transaction, Isolation Level, Lock</td>
+<td>주문 처리의 데이터 정합성</td>
+</tr>
+<tr>
+<td>Ch.16</td>
+<td>Slow Query, Pagination, Partitioning, Sharding</td>
+<td>대규모 데이터 처리</td>
+</tr>
+</tbody>
+</table>
+<p>주문 서비스에서 가장 장애가 잦은 레이어가 DB다. Ch.13의 N+1이 주문 목록 조회에서 터지고, Ch.14의 인덱스 미설정이 검색을 느리게 만들고, Ch.15의 Isolation Level 설정이 동시 주문의 정합성을 좌우하고, Ch.16의 Slow Query가 Connection Pool을 고갈시킨다. 이 네 챕터가 하나의 흐름으로 연결된다.</p>
+<h3 id="part-5-ch1719">Part 5: 캐시와 성능 최적화 (Ch.17~19)<a class="headerlink" href="#part-5-ch1719" title="Permanent link">&para;</a></h3>
+<p>5단계(Cache Layer)와 전체 시스템의 성능 진단에 해당한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.17</td>
+<td>Cache, TTL, Eviction, Write Strategy, Redis</td>
+<td>상품 정보 캐시, 세션 관리</td>
+</tr>
+<tr>
+<td>Ch.18</td>
+<td>Local Cache, Remote Cache, CDN, Cache Invalidation</td>
+<td>계층 캐시 설계</td>
+</tr>
+<tr>
+<td>Ch.19</td>
+<td>Bottleneck, Amdahl's Law, Scale-Out/Up</td>
+<td>전체 시스템 성능 진단</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.19의 Bottleneck 분석이 핵심이다. "느리다"고 서버를 늘리기 전에, Bottleneck이 CPU인지, I/O인지, DB인지, 네트워크인지를 먼저 찾아야 한다. Amdahl's Law는 병렬화의 한계를 수식으로 보여준다. "Replica를 200개로 늘려도 DB가 Bottleneck이면 의미 없다"는 걸 Ch.19에서 봤다.</p>
+<h3 id="part-6-ch2022">Part 6: 소프트웨어 설계와 아키텍처 (Ch.20~22)<a class="headerlink" href="#part-6-ch2022" title="Permanent link">&para;</a></h3>
+<p>4단계(Application Layer)의 코드 품질과, 2단계(Container)의 배포 환경에 해당한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.20</td>
+<td>SOLID, DI/IoC, Clean/Layered Architecture</td>
+<td>Service Layer 설계</td>
+</tr>
+<tr>
+<td>Ch.21</td>
+<td>Unit/Integration/E2E Test, Test Pyramid, Mock/Stub</td>
+<td>코드 품질 보장</td>
+</tr>
+<tr>
+<td>Ch.22</td>
+<td>Container, Docker, namespace, cgroup, K8s</td>
+<td>배포 환경, 프로세스 격리</td>
+</tr>
+</tbody>
+</table>
+<p>Ch.20의 SOLID 원칙이 Service Layer의 구조를 결정하고, Ch.21의 테스트 전략이 그 구조의 품질을 검증하고, Ch.22의 Container가 그 코드를 운영 환경에 올린다. 설계 -&gt; 검증 -&gt; 배포의 순서다.</p>
+<h3 id="part-7-ch2324">Part 7: 보안과 마무리 (Ch.23~24)<a class="headerlink" href="#part-7-ch2324" title="Permanent link">&para;</a></h3>
+<p>3단계(인증/보안)와 전체 시스템의 보안에 해당한다.</p>
+<table>
+<thead>
+<tr>
+<th>챕터</th>
+<th>핵심 키워드</th>
+<th>서비스에서의 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch.23</td>
+<td>OWASP, XSS, SQL Injection, CSRF, CORS, JWT, TLS</td>
+<td>모든 레이어의 보안</td>
+</tr>
+<tr>
+<td>Ch.24</td>
+<td>전체 키워드 맵, AI 활용 전략</td>
+<td>종합 정리</td>
+</tr>
+</tbody>
+</table>
+<p>보안은 특정 레이어가 아니라 모든 레이어에 걸쳐 있다. SQL Injection은 DB Layer에서 막아야 하고, XSS는 Application Layer에서 막아야 하고, CSRF는 인증 레이어에서 막아야 하고, TLS는 네트워크 레이어에서 막아야 한다.</p>
+<h2 id="_3">전체 키워드 연관 관계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>23개 챕터의 키워드를 레이어별로 배치한 큰 그림이다. Ch.1에서 시작한 키워드 그래프가 여기서 완성된다.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph INFRA ["인프라 / 네트워크"]
+        DNS["DNS&lt;br/&gt;(Ch.8)"]
+        CDN["CDN&lt;br/&gt;(Ch.18)"]
+        LB["Load Balancing&lt;br/&gt;(Ch.8, Ch.19)"]
+        TCP["TCP/IP&lt;br/&gt;(Ch.6)"]
+        TLS["HTTPS/TLS&lt;br/&gt;(Ch.23)"]
+        CONT["Container&lt;br/&gt;Docker/K8s&lt;br/&gt;(Ch.22)"]
+    end
+
+    subgraph APP ["Application Layer"]
+        SC["System Call&lt;br/&gt;(Ch.2)"]
+        PROC["Process/Thread&lt;br/&gt;(Ch.4)"]
+        CPUIO["CPU/I/O Bound&lt;br/&gt;(Ch.3)"]
+        SOLID["SOLID&lt;br/&gt;(Ch.20)"]
+        TEST["Test Pyramid&lt;br/&gt;(Ch.21)"]
+        SEC["보안&lt;br/&gt;XSS, SQLI, CSRF&lt;br/&gt;(Ch.23)"]
+    end
+
+    subgraph CACHE_LAYER ["Cache Layer"]
+        LC["Local Cache&lt;br/&gt;(Ch.18)"]
+        RC["Remote Cache&lt;br/&gt;Redis&lt;br/&gt;(Ch.17)"]
+        TTL_E["TTL / Eviction&lt;br/&gt;(Ch.17)"]
+    end
+
+    subgraph DB ["Database Layer"]
+        CP["Connection Pool&lt;br/&gt;(Ch.6)"]
+        ORM_L["ORM / N+1&lt;br/&gt;(Ch.13)"]
+        IDX_L["Index&lt;br/&gt;B-Tree&lt;br/&gt;(Ch.11, Ch.14)"]
+        TX["Transaction&lt;br/&gt;ACID&lt;br/&gt;(Ch.15)"]
+        SQ["Slow Query&lt;br/&gt;(Ch.16)"]
+    end
+
+    subgraph CONCURRENCY ["동시성 (횡단)"]
+        RC_L["Race Condition&lt;br/&gt;(Ch.5)"]
+        LOCK["Mutex / Lock&lt;br/&gt;(Ch.5, Ch.15)"]
+        DL["Deadlock&lt;br/&gt;(Ch.5)"]
+    end
+
+    subgraph DS ["자료구조 (기반)"]
+        HT["Hash Table&lt;br/&gt;(Ch.10)"]
+        BT["B-Tree&lt;br/&gt;(Ch.11)"]
+        GRAPH["BFS/DFS/DAG&lt;br/&gt;(Ch.12)"]
+    end
+
+    DNS --&gt; LB --&gt; CONT
+    CONT --&gt; TLS --&gt; APP
+    APP --&gt; CACHE_LAYER
+    CACHE_LAYER --&gt; DB
+
+    BT --&gt; IDX_L
+    HT --&gt; RC
+
+    RC_L --&gt; TX
+    LOCK --&gt; TX
+    RC_L --&gt; RC
+
+    SQ --&gt;|"점유"| CP
+
+    style RC_L fill:#f96,stroke:#333
+    style DL fill:#f96,stroke:#333
+    style SQ fill:#f96,stroke:#333</code></pre>
+<p>이 그래프에서 빨간색으로 표시된 것들(Race Condition, Deadlock, Slow Query)이 장애의 주요 원인이다. 이 키워드들을 알고 있으면 장애가 발생했을 때 어디부터 봐야 하는지 방향을 잡을 수 있다. 모르면? "서버가 느려요" 하고 서버를 재시작한다.</p>
+<h2 id="ch1-computational-thinking">Ch.1의 Computational Thinking 트리, 완성<a class="headerlink" href="#ch1-computational-thinking" title="Permanent link">&para;</a></h2>
+<p>Ch.1에서 이런 트리를 봤다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;서버가 느리다&quot;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    |
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    +-- CPU Bound인가?
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    |
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    +-- I/O Bound인가?
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    |     |
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    |     +-- Connection Pool이 고갈된 건 아닌가?
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    |     |
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    |     +-- 인덱스가 안 걸린 쿼리가 있는 건 아닌가?
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    |     |
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    |     +-- N+1 쿼리가 발생하고 있는 건 아닌가?
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    |
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    +-- 메모리 문제인가?
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    |
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    +-- 네트워크 문제인가?
+</code></pre></div>
+<p>24챕터를 거친 지금, 이 트리의 각 가지에 해당하는 키워드를 전부 안다. CPU Bound가 뭔지, Connection Pool 고갈이 왜 일어나는지, N+1이 ORM의 Lazy Loading 때문이라는 것까지. 그리고 각 키워드에서 또 다른 키워드로 뻗어나가는 연관어 그래프를 그릴 수 있다.</p>
+<p>Ch.1에서는 이 트리가 "앞으로 배울 것의 미리보기"였다. 지금은 이 트리가 "내가 아는 것의 목차"가 된 거다.</p>
+<hr />
+<p><a href="../">&lt; 이 챕터에 대해</a> | <a href="../02-ai-strategy/">AI 활용 전략 &gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
