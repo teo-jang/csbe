@@ -486,3 +486,110 @@ graph LR
     DFS -->|"재귀 위험"| SF["Stack Frame<br/>(Ch.4)"]
     TREE --> BT["B-Tree<br/>(Ch.11)"]
 ```
+
+---
+
+## Ch.13 - JPA를 써서 DB를 모른다고요?
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| ORM (Object-Relational Mapping) | 새 키워드 | 객체와 DB 테이블을 자동 매핑하는 기술 (SQLAlchemy, JPA, Django ORM) |
+| N+1 Problem | 재등장 (Ch.8) | 메인 쿼리 1번 + 연관 쿼리 N번이 발생하는 ORM의 대표적 성능 문제 |
+| Lazy Loading | 새 키워드 | 연관 데이터를 실제로 접근할 때 쿼리하는 전략, N+1의 원인 |
+| Eager Loading | 새 키워드 | 연관 데이터를 미리 JOIN/서브쿼리로 가져오는 전략 |
+| QEP (Query Execution Plan) | 새 키워드 | DB가 쿼리를 실행하는 방법을 보여주는 계획, EXPLAIN으로 확인 |
+| CBO (Cost Based Optimizer) | 새 키워드 | 통계 기반으로 최적의 실행 계획을 선택하는 DB 옵티마이저 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    ORM --> LL["Lazy Loading"]
+    ORM --> EL["Eager Loading"]
+    LL -->|"원인"| N1["N+1 Problem"]
+    EL -->|"해결"| N1
+    ORM -->|"생성하는"| SQL
+    SQL --> QEP
+    QEP --> CBO
+    QEP --> EXP["EXPLAIN<br/>(Ch.11)"]
+```
+
+---
+
+## Ch.14 - 인덱스를 안 걸어놓고 Redis를 설치했습니다
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Covering Index | 새 키워드 | 쿼리에 필요한 모든 컬럼이 인덱스에 포함되어 테이블 접근이 불필요한 인덱스 |
+| Composite Index | 새 키워드 | 여러 컬럼을 조합한 인덱스, 컬럼 순서가 중요 |
+| Cardinality | 새 키워드 | 컬럼의 고유값 개수, 높을수록 인덱스 효율이 좋다 |
+| Hash Index | 새 키워드 | Hash Table 기반 인덱스, 동등 검색만 가능 (범위 검색 불가) |
+| B-Tree Index | 재등장 (Ch.11) | 범위 검색과 정렬까지 지원하는 기본 인덱스 구조 |
+| EXPLAIN | 재등장 (Ch.11) | 인덱스 사용 여부와 쿼리 실행 계획 확인 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    IDX["Index<br/>(Ch.11)"] --> CI["Covering Index"]
+    IDX --> COMP["Composite Index"]
+    IDX --> HI["Hash Index"]
+    IDX --> BT["B-Tree Index<br/>(Ch.11)"]
+    COMP --> CARD["Cardinality"]
+    IDX --> EXP["EXPLAIN<br/>(Ch.11)"]
+    EXP --> FTS["Full Table Scan<br/>(Ch.11)"]
+```
+
+---
+
+## Ch.15 - Transaction과 Isolation Level
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| ACID | 새 키워드 | Transaction의 4가지 보장: Atomicity, Consistency, Isolation, Durability |
+| Transaction | 새 키워드 | 하나의 논리적 작업 단위, 전부 성공하거나 전부 실패 |
+| Isolation Level | 새 키워드 | 동시 트랜잭션 간 간섭 정도를 결정하는 4단계 설정 |
+| Dirty Read | 새 키워드 | 커밋되지 않은 데이터를 읽는 현상 |
+| Non-repeatable Read | 새 키워드 | 같은 쿼리를 두 번 실행했을 때 결과가 다른 현상 |
+| Phantom Read | 새 키워드 | 같은 범위 쿼리를 두 번 실행했을 때 행의 수가 다른 현상 |
+| Pessimistic Lock | 새 키워드 | 충돌을 가정하고 미리 잠그는 방식 (SELECT FOR UPDATE) |
+| Optimistic Lock | 새 키워드 | 충돌이 드물다고 가정하고 커밋 시 검증하는 방식 (version 컬럼) |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    TX["Transaction"] --> ACID
+    TX --> IL["Isolation Level"]
+    IL --> DR["Dirty Read"]
+    IL --> NR["Non-repeatable Read"]
+    IL --> PR["Phantom Read"]
+    TX --> PL["Pessimistic Lock"]
+    TX --> OL["Optimistic Lock"]
+    PL --> RC["Race Condition<br/>(Ch.5)"]
+    OL --> RC
+```
+
+---
+
+## Ch.16 - DB 성능 튜닝의 실무
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Slow Query | 새 키워드 | 실행 시간이 임계값을 넘는 쿼리, slow_query_log로 추적 |
+| Pagination | 새 키워드 | 대량 데이터를 페이지 단위로 나누어 조회하는 기법 |
+| Cursor-based Pagination | 새 키워드 | OFFSET 대신 마지막 조회 기준값으로 다음 페이지를 결정하는 방식 |
+| Partitioning | 새 키워드 | 하나의 테이블을 물리적으로 분할하여 관리하는 기법 |
+| Sharding | 새 키워드 | 데이터를 여러 DB 서버에 분산 저장하는 기법 |
+| Read Replica | 새 키워드 | 읽기 전용 복제 DB, 읽기 부하 분산에 사용 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    SQ["Slow Query"] -->|"점유"| CP["Connection Pool<br/>(Ch.6)"]
+    SQ --> EXP["EXPLAIN<br/>(Ch.11)"]
+    PAG["Pagination"] --> CBP["Cursor-based<br/>Pagination"]
+    PART["Partitioning"] --> SHARD["Sharding"]
+    RR["Read Replica"] -->|"읽기 분산"| CP
+```
