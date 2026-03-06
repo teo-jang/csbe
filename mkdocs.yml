@@ -84,3 +84,9 @@ nav:
       - TCP/IP와 Socket: ch06/02-tcp-socket.md
       - Connection Pool과 Keep-Alive: ch06/03-connection-pool.md
       - 유사 사례와 키워드 정리: ch06/04-summary.md
+  - Ch.7 AI와 CS 키워드:
+      - 이 챕터에 대해: ch07/README.md
+      - 사례 - 같은 문제, 다른 프롬프트: ch07/01-case.md
+      - AI 코딩 도구의 작동 원리: ch07/02-how-ai-coding-works.md
+      - CS 키워드로 AI를 제어하는 법: ch07/03-do-dont-patterns.md
+      - 유사 사례와 키워드 정리: ch07/04-summary.md

@@ -287,3 +287,41 @@ graph LR
     style TW fill:#f96,stroke:#333
     style CW fill:#f96,stroke:#333
 ```
+
+---
+
+## Ch.7 - AI가 코드를 짜주는 시대, 왜 CS를 알아야 하는가
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| LLM (Large Language Model) | 새 키워드 | AI 코딩 도구의 핵심 엔진, 확률적으로 다음 토큰을 예측하는 모델 |
+| Token | 새 키워드 | LLM이 텍스트를 처리하는 기본 단위 |
+| Context Window | 새 키워드 | LLM이 한 번에 처리할 수 있는 토큰 수의 상한 |
+| Hallucination | 새 키워드 | AI가 사실이 아닌 정보를 그럴듯하게 생성하는 현상 |
+| Prompt Engineering | 새 키워드 | AI에게 원하는 결과를 얻기 위해 프롬프트를 설계하는 기법 |
+| System Call | 재등장 (Ch.2) | 프롬프트에서 "느린 원인" 키워드로 사용 |
+| CPU Bound / I/O Bound | 재등장 (Ch.3) | "async로 바꿔줘" 대신 정확한 최적화 방향 지정 |
+| Race Condition | 재등장 (Ch.5) | "동시에 에러 난다" 대신 원인 기반 프롬프트 |
+| Connection Pool | 재등장 (Ch.6) | "DB 연결 끊긴다" 대신 정확한 설정 키워드 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    LLM --> TK["Token"]
+    LLM --> CW["Context Window"]
+    LLM --> HL["Hallucination"]
+    LLM --> PE["Prompt<br/>Engineering"]
+
+    PE -->|"핵심 재료"| CSKW["CS 키워드"]
+    CSKW -->|"프롬프트를<br/>좁힌다"| LLM
+
+    CSKW --> SC["System Call<br/>(Ch.2)"]
+    CSKW --> CPUIO["CPU/I/O Bound<br/>(Ch.3)"]
+    CSKW --> RC["Race Condition<br/>(Ch.5)"]
+    CSKW --> CP["Connection Pool<br/>(Ch.6)"]
+
+    HL -->|"검증하려면"| CSKW
+    TK -->|"정보 밀도"| CSKW
+    CW -->|"효율적 전달"| CSKW
+```
