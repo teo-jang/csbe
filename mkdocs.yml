@@ -90,3 +90,9 @@ nav:
       - AI 코딩 도구의 작동 원리: ch07/02-how-ai-coding-works.md
       - CS 키워드로 AI를 제어하는 법: ch07/03-do-dont-patterns.md
       - 유사 사례와 키워드 정리: ch07/04-summary.md
+  - Ch.8 CS 키워드 사전:
+      - 이 챕터에 대해: ch08/README.md
+      - 사례 - 같은 문제, 다른 카테고리: ch08/01-case.md
+      - OS와 네트워크 키워드: ch08/02-os-network-keywords.md
+      - DB와 자료구조 키워드: ch08/03-db-ds-keywords.md
+      - 유사 사례와 키워드 정리: ch08/04-summary.md

@@ -325,3 +325,42 @@ graph LR
     TK -->|"정보 밀도"| CSKW
     CW -->|"효율적 전달"| CSKW
 ```
+
+---
+
+## Ch.8 - AI에게 좋은 지시를 내리기 위한 CS 키워드 사전
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| DNS Resolution | 새 키워드 | 도메인 이름을 IP 주소로 변환하는 과정 |
+| Load Balancing | 새 키워드 | 트래픽을 여러 서버에 분산하는 기법 |
+| N+1 Problem | 새 키워드 | ORM에서 메인 쿼리 1번 + 연관 쿼리 N번이 발생하는 패턴 |
+| Time Complexity | 새 키워드 | 알고리즘의 입력 크기 대비 실행 시간 증가율 (Big-O) |
+| Circuit Breaker | 새 키워드 | 장애 서비스 호출을 차단해서 전파를 막는 패턴 |
+| CQRS | 새 키워드 | 읽기(Query)와 쓰기(Command)를 분리하는 아키텍처 패턴 |
+| System Call | 재등장 (Ch.2) | OS 키워드 표에서 프롬프트 활용법 제시 |
+| CPU/I/O Bound | 재등장 (Ch.3) | OS 키워드 표에서 최적화 방향 결정 |
+| Race Condition | 재등장 (Ch.5) | OS 키워드 표에서 동시성 문제 진단 |
+| Connection Pool | 재등장 (Ch.6) | 네트워크 + DB 양쪽 키워드로 등장 |
+| Prompt Engineering | 재등장 (Ch.7) | 키워드 카테고리별 프롬프트 작성 전략 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    PE["Prompt Engineering<br/>(Ch.7)"] --> CAT["키워드 카테고리"]
+    CAT --> OS["OS"]
+    CAT --> NET["네트워크"]
+    CAT --> DB["DB"]
+    CAT --> DS["자료구조"]
+    CAT --> ARCH["아키텍처"]
+
+    OS --> SC["System Call<br/>(Ch.2)"]
+    OS --> CPUIO["CPU/I/O Bound<br/>(Ch.3)"]
+    NET --> DNS["DNS Resolution"]
+    NET --> LB["Load Balancing"]
+    DB --> N1["N+1 Problem"]
+    DS --> TC["Time Complexity"]
+    ARCH --> CBR["Circuit Breaker"]
+    ARCH --> CQRS["CQRS"]
+```
