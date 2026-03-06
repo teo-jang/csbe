@@ -49,24 +49,24 @@ AI 도구(Claude Code, Cursor 등)를 활용하는 시대에 왜 CS를 알아야
 
 | 챕터 | 제목 | 핵심 |
 |------|------|------|
-| Ch.17 | 느리니까 Redis 붙이고 생각해볼까요? | Cache Stampede, TTL, Eviction |
-| Ch.18 | Local Cache vs Remote Cache | 계층 캐시 설계 |
-| Ch.19 | Replica를 200개로 늘려볼까요? | Bottleneck 식별, Amdahl's Law |
+| Ch.17 | [느리니까 Redis 붙이고 생각해볼까요?](ch17/README.md) | Cache Stampede, TTL, Eviction |
+| Ch.18 | [Local Cache vs Remote Cache](ch18/README.md) | 계층 캐시 설계 |
+| Ch.19 | [Replica를 200개로 늘려볼까요?](ch19/README.md) | Bottleneck 식별, Amdahl's Law |
 
 ### Part 6. 소프트웨어 설계와 아키텍처 (Ch.20~22)
 
 | 챕터 | 제목 | 핵심 |
 |------|------|------|
-| Ch.20 | 관심사의 분리 | SOLID, Clean Architecture |
-| Ch.21 | 테스트를 짜라고 했더니 전부 Mocking입니다 | Unit/Integration/E2E 경계 |
-| Ch.22 | 분산 시스템의 기초 | Docker, namespace, cgroup |
+| Ch.20 | [관심사의 분리](ch20/README.md) | SOLID, Clean Architecture |
+| Ch.21 | [테스트를 짜라고 했더니 전부 Mocking입니다](ch21/README.md) | Unit/Integration/E2E 경계 |
+| Ch.22 | [분산 시스템의 기초](ch22/README.md) | Docker, namespace, cgroup |
 
 ### Part 7. 보안과 마무리 (Ch.23~24)
 
 | 챕터 | 제목 | 핵심 |
 |------|------|------|
-| Ch.23 | 보안은 남의 일이 아니다 | OWASP Top 10, CORS, JWT |
-| Ch.24 | 종합 | 전체 키워드 총정리, AI 활용 전략 |
+| Ch.23 | [보안은 남의 일이 아니다](ch23/README.md) | OWASP Top 10, CORS, JWT |
+| Ch.24 | [종합](ch24/README.md) | 전체 키워드 총정리, AI 활용 전략 |
 
 ---
 
