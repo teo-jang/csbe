@@ -364,3 +364,41 @@ graph LR
     ARCH --> CBR["Circuit Breaker"]
     ARCH --> CQRS["CQRS"]
 ```
+
+---
+
+## Ch.9 - AI가 만든 코드 리뷰하기
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Code Review (코드 리뷰) | 새 키워드 | 작성된 코드를 동시성, 성능, 보안, 가독성 관점에서 검토하는 과정 |
+| YAGNI | 새 키워드 | "지금 필요하지 않은 기능을 미리 만들지 마라"는 소프트웨어 공학 원칙 |
+| Cache Stampede | 새 키워드 | 캐시 만료 순간에 대량의 요청이 동시에 원본 저장소를 조회하는 현상 |
+| Race Condition | 재등장 (Ch.5) | AI가 놓치는 동시성 문제의 대표 사례 |
+| Time Complexity | 재등장 (Ch.8) | AI 코드의 성능 문제를 판단하는 기준 |
+| CPU Bound / I/O Bound | 재등장 (Ch.3) | AI가 잘못 선택하는 I/O 패턴 |
+| N+1 Problem | 재등장 (Ch.8) | 코드 리뷰 체크리스트 DB 항목 |
+| Hallucination | 재등장 (Ch.7) | AI가 자신 있게 틀리는 근본 원인 |
+| Stack Frame | 재등장 (Ch.4) | 재귀 코드의 Stack Overflow 위험 |
+| Prompt Engineering | 재등장 (Ch.7) | 체크리스트를 AI 프롬프트에 활용 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    CR["Code Review"] --> CHK["체크리스트"]
+    CHK --> CON["동시성<br/>(Ch.5)"]
+    CHK --> PERF["성능/복잡도<br/>(Ch.10)"]
+    CHK --> IO["I/O 패턴<br/>(Ch.3)"]
+    CHK --> DBC["DB/쿼리<br/>(Ch.13~16)"]
+    CHK --> SEC["보안<br/>(Ch.23)"]
+    CHK --> DES["설계 적절성<br/>(Ch.20)"]
+
+    DES --> YAGNI
+    CON --> RC["Race Condition"]
+    PERF --> TC["Time Complexity"]
+
+    CR -->|"AI에게<br/>리뷰 시킬 때도"| PE["Prompt Engineering<br/>(Ch.7)"]
+
+    CS2["Cache Stampede"] -.->|"Ch.17"| CON
+```
