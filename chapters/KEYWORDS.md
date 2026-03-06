@@ -433,3 +433,31 @@ graph LR
 
     TC -.->|"Ch.11"| BS["Binary Search<br/>O(log n)"]
 ```
+
+---
+
+## Ch.11 - 정렬과 검색, 그리고 인덱스의 원리
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Binary Search | 새 키워드 | 정렬된 데이터에서 절반씩 범위를 줄여가며 찾는 O(log n) 탐색 |
+| B-Tree / B+Tree | 새 키워드 | 디스크 기반 저장소에 최적화된 균형 트리, DB 인덱스의 핵심 자료구조 |
+| Index (인덱스) | 새 키워드 | 특정 컬럼의 값을 B+Tree로 정리해서 검색 성능을 높이는 구조 |
+| Full Table Scan | 새 키워드 | 테이블의 모든 행을 순회하는 O(n) 검색, 인덱스 없을 때 발생 |
+| Tim Sort | 새 키워드 | Python/Java의 기본 정렬 알고리즘, Merge Sort + Insertion Sort 하이브리드 |
+| EXPLAIN | 새 키워드 | 쿼리 실행 계획을 확인하는 DB 명령어, 인덱스 사용 여부 진단 |
+| Time Complexity | 재등장 (Ch.8) | O(n log n) vs O(log n) 비교 |
+| Hash Table | 재등장 (Ch.10) | Hash Table과 B-Tree의 용도 차이 (같은 값 vs 범위 검색) |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    BS["Binary Search<br/>O(log n)"] --> BT["B-Tree / B+Tree"]
+    BT --> IDX["Index"]
+    IDX --> EXP["EXPLAIN"]
+
+    LS["Linear Search<br/>(Ch.10)"] --> FTS["Full Table Scan"]
+    HT["Hash Table<br/>(Ch.10)"] -->|"같은 값 찾기"| IDX
+    BS -->|"범위 검색"| IDX
+```

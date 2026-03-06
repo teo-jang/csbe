@@ -108,3 +108,9 @@ nav:
       - Hash Table과 시간 복잡도: ch10/02-hash-table.md
       - 자료구조 선택의 기준: ch10/03-choosing-ds.md
       - 유사 사례와 키워드 정리: ch10/04-summary.md
+  - Ch.11 정렬과 검색, 인덱스:
+      - 환경 세팅: ch11/README.md
+      - 사례 - 매 요청마다 정렬하는 API: ch11/01-case.md
+      - Binary Search와 B-Tree: ch11/02-binary-search-btree.md
+      - 인덱스의 원리: ch11/03-index-internals.md
+      - 유사 사례와 키워드 정리: ch11/04-summary.md
