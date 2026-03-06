@@ -114,3 +114,8 @@ nav:
       - Binary Search와 B-Tree: ch11/02-binary-search-btree.md
       - 인덱스의 원리: ch11/03-index-internals.md
       - 유사 사례와 키워드 정리: ch11/04-summary.md
+  - Ch.12 트리, 그래프, 실무:
+      - 환경 세팅: ch12/README.md
+      - 사례 - 카테고리 트리를 매번 재귀로 조회한다: ch12/01-case.md
+      - BFS, DFS, 그리고 DAG: ch12/02-bfs-dfs-dag.md
+      - 유사 사례와 키워드 정리: ch12/03-summary.md
