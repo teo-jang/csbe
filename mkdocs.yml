@@ -102,3 +102,9 @@ nav:
       - AI가 자주 틀리는 6가지 패턴: ch09/02-common-mistakes.md
       - CS 관점 코드 리뷰 체크리스트: ch09/03-review-checklist.md
       - 유사 사례와 키워드 정리: ch09/04-summary.md
+  - Ch.10 contains()를 쓰지 마세요:
+      - 환경 세팅: ch10/README.md
+      - 사례 - contains()가 API를 멈추게 한 날: ch10/01-case.md
+      - Hash Table과 시간 복잡도: ch10/02-hash-table.md
+      - 자료구조 선택의 기준: ch10/03-choosing-ds.md
+      - 유사 사례와 키워드 정리: ch10/04-summary.md

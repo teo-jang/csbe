@@ -402,3 +402,34 @@ graph LR
 
     CS2["Cache Stampede"] -.->|"Ch.17"| CON
 ```
+
+---
+
+## Ch.10 - contains()를 쓰지 마세요
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Hash Table | 새 키워드 | 키를 Hash 함수로 변환해서 배열 인덱스로 사용하는 O(1) 검색 자료구조 |
+| Hash Function | 새 키워드 | 임의의 입력을 고정된 크기의 숫자로 변환하는 함수 |
+| Hash Collision | 새 키워드 | 서로 다른 키가 같은 Hash 값을 가지는 현상 |
+| Time Complexity | 재등장 (Ch.8) | 프롬프트 키워드에서 실측 체감으로 전환 (O(1) vs O(n) = 4,000배 차이) |
+| Space Complexity | 새 키워드 | 알고리즘이 사용하는 메모리의 입력 크기 대비 증가율 |
+| Linear Search | 새 키워드 | 처음부터 끝까지 순서대로 비교하며 찾는 O(n) 탐색 |
+| Load Factor | 새 키워드 | Hash Table의 사용률, 높아지면 충돌 증가 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    HT["Hash Table"] --> HF["Hash Function"]
+    HT --> HC["Hash Collision"]
+    HT --> LF["Load Factor"]
+
+    HT -->|"O(1) 검색"| TC["Time Complexity<br/>(Ch.8)"]
+    LS["Linear Search"] -->|"O(n) 검색"| TC
+
+    HT -->|"메모리 더 사용"| SC["Space Complexity"]
+    TC ---|"Trade-off"| SC
+
+    TC -.->|"Ch.11"| BS["Binary Search<br/>O(log n)"]
+```
