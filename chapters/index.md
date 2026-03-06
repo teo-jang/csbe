@@ -34,7 +34,7 @@ AI 도구(Claude Code, Cursor 등)를 활용하는 시대에 왜 CS를 알아야
 |------|------|------|
 | Ch.10 | [contains()를 쓰지 마세요](ch10/README.md) | 자료구조 선택의 기준, List vs Set vs Map |
 | Ch.11 | [정렬과 검색, 그리고 인덱스의 원리](ch11/README.md) | B-Tree와 Index |
-| Ch.12 | 트리, 그래프, 그리고 실무 | BFS/DFS 실무 활용, DAG |
+| Ch.12 | [트리, 그래프, 그리고 실무](ch12/README.md) | BFS/DFS 실무 활용, DAG |
 
 ### Part 4. 데이터베이스 깊게 보기 (Ch.13~16)
 

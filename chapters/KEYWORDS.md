@@ -461,3 +461,28 @@ graph LR
     HT["Hash Table<br/>(Ch.10)"] -->|"같은 값 찾기"| IDX
     BS -->|"범위 검색"| IDX
 ```
+
+---
+
+## Ch.12 - 트리, 그래프, 그리고 실무
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| BFS | 새 키워드 | Queue 기반 너비 우선 탐색, 최단 경로와 레벨 단위 처리에 적합 |
+| DFS | 새 키워드 | Stack/재귀 기반 깊이 우선 탐색, 경로 탐색과 사이클 감지에 적합 |
+| DAG | 새 키워드 | 방향 비순환 그래프, 의존 관계 표현의 핵심 구조 |
+| Topological Sort | 새 키워드 | DAG에서 의존 순서대로 나열하는 알고리즘 |
+| Stack Frame | 재등장 (Ch.4) | 재귀 깊이와 Stack Overflow 위험 |
+| B-Tree | 재등장 (Ch.11) | 트리 자료구조의 DB 특화 버전 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    TREE["Tree"] --> BFS
+    TREE --> DFS
+    GRAPH["Graph"] --> DAG
+    DAG --> TS["Topological Sort"]
+    DFS -->|"재귀 위험"| SF["Stack Frame<br/>(Ch.4)"]
+    TREE --> BT["B-Tree<br/>(Ch.11)"]
+```
