@@ -154,3 +154,28 @@ nav:
       - 사례 - Scale-Out 했는데 왜 안 빨라지죠?: ch19/01-case.md
       - Bottleneck과 Amdahl의 법칙: ch19/02-bottleneck-amdahl.md
       - 유사 사례와 키워드 정리: ch19/03-summary.md
+  - Ch.20 관심사의 분리:
+      - 환경 세팅: ch20/README.md
+      - 사례 - 3000줄짜리 God Class: ch20/01-case.md
+      - SOLID와 Clean Architecture: ch20/02-solid-architecture.md
+      - 유사 사례와 키워드 정리: ch20/03-summary.md
+  - Ch.21 테스트를 짜라고 했더니 전부 Mocking입니다:
+      - 환경 세팅: ch21/README.md
+      - 사례 - Mock으로만 통과한 테스트: ch21/01-case.md
+      - 테스트 전략과 경계: ch21/02-test-strategy.md
+      - 유사 사례와 키워드 정리: ch21/03-summary.md
+  - Ch.22 분산 시스템의 기초:
+      - 환경 세팅: ch22/README.md
+      - 사례 - 내 컴퓨터에서는 되는데요: ch22/01-case.md
+      - Container와 Orchestration: ch22/02-container-orchestration.md
+      - 유사 사례와 키워드 정리: ch22/03-summary.md
+  - Ch.23 보안은 남의 일이 아니다:
+      - 환경 세팅: ch23/README.md
+      - 사례 - XSS 한 줄로 서비스가 털렸다: ch23/01-case.md
+      - 웹 보안의 핵심: ch23/02-web-security.md
+      - 유사 사례와 키워드 정리: ch23/03-summary.md
+  - Ch.24 종합:
+      - 이 챕터에 대해: ch24/README.md
+      - 전체 키워드 총정리: ch24/01-keyword-map.md
+      - AI 활용 전략: ch24/02-ai-strategy.md
+      - 마무리: ch24/03-summary.md

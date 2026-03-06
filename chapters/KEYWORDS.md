@@ -671,3 +671,150 @@ graph LR
     SO --> SU["Scale-Up"]
     BN -->|"측정"| TL["Throughput / Latency<br/>(Ch.2)"]
 ```
+
+---
+
+## Ch.20 - 관심사의 분리
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| SOLID | 새 키워드 | 객체지향 설계의 5가지 원칙 (SRP, OCP, LSP, ISP, DIP) |
+| SRP (Single Responsibility Principle) | 새 키워드 | 하나의 클래스는 하나의 변경 이유만 가져야 한다 |
+| DIP (Dependency Inversion Principle) | 새 키워드 | 상위 모듈이 하위 모듈에 의존하지 않고 추상에 의존해야 한다 |
+| DI (Dependency Injection) | 새 키워드 | 의존성을 외부에서 주입하는 설계 패턴 |
+| IoC (Inversion of Control) | 새 키워드 | 제어 흐름을 프레임워크에 위임하는 설계 원칙 |
+| Clean Architecture | 새 키워드 | 의존성 방향을 안쪽으로만 향하게 하는 아키텍처 패턴 |
+| Layered Architecture | 새 키워드 | Presentation → Business → Data 계층 분리 패턴 |
+| God Class | 새 키워드 | 너무 많은 책임을 가진 거대 클래스, SRP 위반의 대표 사례 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    SOLID --> SRP
+    SOLID --> DIP
+    DIP --> DI["DI"]
+    DI --> IOC["IoC"]
+    SRP -->|"위반하면"| GC["God Class"]
+    SOLID --> CA["Clean<br/>Architecture"]
+    CA --> LA["Layered<br/>Architecture"]
+```
+
+---
+
+## Ch.21 - 테스트를 짜라고 했더니 전부 Mocking입니다
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Unit Test | 새 키워드 | 함수/메서드 단위로 격리된 동작을 검증하는 테스트 |
+| Integration Test | 새 키워드 | 여러 모듈/시스템의 연동을 검증하는 테스트 |
+| E2E Test | 새 키워드 | 사용자 시나리오 전체를 검증하는 테스트 |
+| Test Double | 새 키워드 | 테스트에서 실제 객체를 대체하는 가짜 객체의 총칭 |
+| Mock | 새 키워드 | 호출 여부와 인자를 검증하는 Test Double |
+| Stub | 새 키워드 | 미리 정해진 응답을 반환하는 Test Double |
+| Test Pyramid | 새 키워드 | Unit > Integration > E2E 순으로 테스트 비율을 구성하는 전략 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    TP["Test Pyramid"] --> UT["Unit Test"]
+    TP --> IT["Integration Test"]
+    TP --> E2E["E2E Test"]
+    TD["Test Double"] --> MOCK["Mock"]
+    TD --> STUB["Stub"]
+    MOCK -->|"과도하면"| ANTI["Mocking 과다"]
+    IT -->|"실제 연동"| DB["DB/API"]
+```
+
+---
+
+## Ch.22 - 분산 시스템의 기초
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| Container | 새 키워드 | OS 수준 가상화로 프로세스를 격리하는 기술 |
+| Docker | 새 키워드 | 컨테이너 빌드/실행 도구의 사실상 표준 |
+| namespace | 새 키워드 | Linux 커널의 자원 격리 메커니즘 (PID, Network, Mount 등) |
+| cgroup | 새 키워드 | Linux 커널의 자원 제한 메커니즘 (CPU, Memory 등) |
+| Docker Image / Layer | 새 키워드 | 읽기 전용 파일 시스템 레이어의 스택 |
+| Kubernetes (K8s) | 새 키워드 | 컨테이너 오케스트레이션 플랫폼 |
+| Service Discovery | 새 키워드 | 분산 시스템에서 서비스 위치를 동적으로 찾는 메커니즘 |
+| Virtual Memory | 재등장 (Ch.4) | Container는 VM이 아닌 프로세스 격리 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    CONT["Container"] --> NS["namespace"]
+    CONT --> CG["cgroup"]
+    CONT --> DOCKER["Docker"]
+    DOCKER --> IMG["Image / Layer"]
+    CONT --> K8S["Kubernetes"]
+    K8S --> SD["Service Discovery"]
+    CONT -->|"VM이 아니다"| VM["Virtual Memory<br/>(Ch.4)"]
+```
+
+---
+
+## Ch.23 - 보안은 남의 일이 아니다
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| OWASP Top 10 | 새 키워드 | 웹 애플리케이션의 10대 보안 취약점 목록 |
+| XSS (Cross-Site Scripting) | 새 키워드 | 악성 스크립트를 주입하여 사용자 브라우저에서 실행시키는 공격 |
+| SQL Injection | 새 키워드 | 사용자 입력을 통해 악의적인 SQL을 실행시키는 공격 |
+| CSRF (Cross-Site Request Forgery) | 새 키워드 | 인증된 사용자의 의도하지 않은 요청을 위조하는 공격 |
+| CORS (Cross-Origin Resource Sharing) | 새 키워드 | 다른 도메인 간 자원 공유를 제어하는 HTTP 메커니즘 |
+| HTTPS / TLS | 새 키워드 | 통신 암호화 프로토콜, 도청과 변조를 방지 |
+| JWT (JSON Web Token) | 새 키워드 | 서명된 JSON 기반 인증 토큰 |
+| Session | 새 키워드 | 서버에 사용자 상태를 저장하는 인증 방식 |
+
+### 키워드 연관 관계
+
+```mermaid
+graph LR
+    OWASP["OWASP Top 10"] --> XSS
+    OWASP --> SQLI["SQL Injection"]
+    OWASP --> CSRF
+    CORS --> CSRF
+    TLS["HTTPS / TLS"] --> TCP["TCP<br/>(Ch.6)"]
+    JWT --> SESSION["Session"]
+    JWT -->|"vs"| SESSION
+```
+
+---
+
+## Ch.24 - 종합
+
+| 키워드 | 분류 | 한 줄 설명 |
+|--------|------|-----------|
+| 전체 키워드 맵 | 정리 | Ch.1~23의 모든 키워드를 레이어별로 매핑 |
+| AI 활용 전략 | 정리 | CS 키워드를 기반으로 한 AI 도구 활용 가이드 |
+
+### 전체 키워드 연관 관계
+
+```mermaid
+graph TB
+    APP["Application Layer"] --> OS_LAYER["OS Layer"]
+    APP --> NET["Network Layer"]
+    APP --> DB["Database Layer"]
+    APP --> CACHE["Cache Layer"]
+    APP --> ARCH["Architecture"]
+    APP --> SEC["Security"]
+    APP --> TEST["Testing"]
+
+    OS_LAYER --> SC["System Call"]
+    OS_LAYER --> VM["Virtual Memory"]
+    OS_LAYER --> PROC["Process/Thread"]
+    NET --> TCP["TCP/IP"]
+    NET --> CP["Connection Pool"]
+    DB --> IDX["Index"]
+    DB --> TX["Transaction"]
+    CACHE --> REDIS["Redis"]
+    CACHE --> LC["Local Cache"]
+    ARCH --> SOLID
+    ARCH --> CONT["Container"]
+    SEC --> OWASP
+    TEST --> TP["Test Pyramid"]
+```
