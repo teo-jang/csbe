@@ -119,3 +119,23 @@ nav:
       - 사례 - 카테고리 트리를 매번 재귀로 조회한다: ch12/01-case.md
       - BFS, DFS, 그리고 DAG: ch12/02-bfs-dfs-dag.md
       - 유사 사례와 키워드 정리: ch12/03-summary.md
+  - Ch.13 JPA를 써서 DB를 모른다고요?:
+      - 환경 세팅: ch13/README.md
+      - 사례 - N+1 Problem: ch13/01-case.md
+      - ORM과 SQL: ch13/02-orm-sql.md
+      - 유사 사례와 키워드 정리: ch13/03-summary.md
+  - Ch.14 인덱스를 안 걸어놓고 Redis를 설치했습니다:
+      - 환경 세팅: ch14/README.md
+      - 사례 - 인덱스 없이 Redis 도입: ch14/01-case.md
+      - 인덱스 설계: ch14/02-index-design.md
+      - 유사 사례와 키워드 정리: ch14/03-summary.md
+  - Ch.15 Transaction과 Isolation Level:
+      - 환경 세팅: ch15/README.md
+      - 사례 - 재고가 마이너스가 됐다: ch15/01-case.md
+      - Isolation Level: ch15/02-isolation-levels.md
+      - 유사 사례와 키워드 정리: ch15/03-summary.md
+  - Ch.16 DB 성능 튜닝의 실무:
+      - 환경 세팅: ch16/README.md
+      - 사례 - Slow Query가 서버를 죽였다: ch16/01-case.md
+      - 쿼리 최적화: ch16/02-query-optimization.md
+      - 유사 사례와 키워드 정리: ch16/03-summary.md

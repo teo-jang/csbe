@@ -40,10 +40,10 @@ AI 도구(Claude Code, Cursor 등)를 활용하는 시대에 왜 CS를 알아야
 
 | 챕터 | 제목 | 핵심 |
 |------|------|------|
-| Ch.13 | JPA를 써서 DB를 모른다고요? | ORM이 생성하는 SQL, N+1 |
-| Ch.14 | 인덱스를 안 걸어놓고 Redis를 설치했습니다 | Index 작동 원리 |
-| Ch.15 | Transaction과 Isolation Level | ACID, 동시성 문제 |
-| Ch.16 | DB 성능 튜닝의 실무 | Slow Query, Connection Pool |
+| Ch.13 | [JPA를 써서 DB를 모른다고요?](ch13/README.md) | ORM이 생성하는 SQL, N+1 |
+| Ch.14 | [인덱스를 안 걸어놓고 Redis를 설치했습니다](ch14/README.md) | Index 작동 원리 |
+| Ch.15 | [Transaction과 Isolation Level](ch15/README.md) | ACID, 동시성 문제 |
+| Ch.16 | [DB 성능 튜닝의 실무](ch16/README.md) | Slow Query, Connection Pool |
 
 ### Part 5. 캐시와 성능 최적화 (Ch.17~19)
 
